@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — Facebook blue + white, Man City sky blue as a small accent  spec-tag*/
+  --color-primary: #1877f2;
+  --color-primary-dark: #0e5fd1;
+  --color-primary-light: #e8f1fe;
+  --color-navy: #1E0E99;
+  --color-navy-2: #1C1D8A;
+  --color-sky: #46C1F4;
+  --color-steel: #56606e;
+  --color-steel-light: #8792a0;
+  --color-paper: #f5f7fb;
+  --color-line: #e1e6ee;
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  --container-page: 1280px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-navy);
+  background: var(--color-paper);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Blueprint grid backdrop — the site's signature technical-drawing motif */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(108, 171, 221, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 171, 221, 0.14) 1px, transparent 1px),
+    linear-gradient(rgba(108, 171, 221, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 171, 221, 0.28) 1px, transparent 1px);
+  background-size: 16px 16px, 16px 16px, 80px 80px, 80px 80px;
+  background-position: -1px -1px;
+}
+
+/* Spec-sheet style tag used throughout as a structural device,
+   echoing engineering drawing labels (DWG-XX / REV) */
+.spec-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+}
+
+@media (min-width: 768px) {
+  .spec-tag {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .spec-tag {
+    font-size: 0.88rem;
+  }
+}
+
+.container-page {
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container-page {
+    padding-inline: 2.5rem;
+  }
+}
+
+::selection {
+  background: var(--color-sky);
+  color: var(--color-navy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
