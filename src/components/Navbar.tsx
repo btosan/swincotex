@@ -51,7 +51,7 @@ export default function Navbar() {
       </div>
 
       <nav className="container-page flex h-18 items-center justify-between py-3">
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2 md:gap-2.5">
           <Image
             src="/assets/logo.png"
             alt="Swincotex logo"
@@ -90,7 +90,7 @@ export default function Navbar() {
             </Link>
 
             {servicesOpen && (
-              <div className="absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-3">
+              <div className="absolute left-1/2 top-full w-160 -translate-x-1/2 pt-3">
                 <div className="rounded-md border border-line bg-white p-5 shadow-2xl shadow-black/20">
                   <p className="spec-tag mb-3 text-steel-light">Technical &amp; Field Services / Index</p>
                   <div className="grid grid-cols-2 gap-x-6 gap-y-1">

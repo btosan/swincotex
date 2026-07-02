@@ -1,6 +1,6 @@
 export type Service = {
   slug: string;
-  code: string; // spec-sheet style code, e.g. DWG-01
+  code: string; // spec-sheet style code, e.g. 01
   title: string;
   short: string;
   summary: string;
@@ -22,7 +22,7 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "environmental-process-thermal-engineering",
-    code: "DWG-01",
+    code: "01",
     title: "Environmental, Process & Thermal Engineering",
     short: "Process design and environmental engineering for upstream and midstream facilities.",
     summary:
@@ -40,7 +40,7 @@ export const services: Service[] = [
   },
   {
     slug: "well-head-services",
-    code: "DWG-02",
+    code: "02",
     title: "Well Head Services",
     short: "Well head installation, maintenance, and field support.",
     summary:
@@ -57,7 +57,7 @@ export const services: Service[] = [
   },
   {
     slug: "mechanical-engineering-design-construction",
-    code: "DWG-03",
+    code: "03",
     title: "Mechanical Engineering, Design & Construction",
     short: "Mechanical design and construction for plants, terminals, and offshore platforms.",
     summary:
@@ -76,7 +76,7 @@ export const services: Service[] = [
   },
   {
     slug: "fabrication-installation-process-equipment",
-    code: "DWG-04",
+    code: "04",
     title: "Fabrication, Supply & Installation of Process Equipment",
     short: "Workshop fabrication and site installation of process equipment and instrumentation.",
     summary:
@@ -94,7 +94,7 @@ export const services: Service[] = [
   },
   {
     slug: "civil-engineering-construction",
-    code: "DWG-05",
+    code: "05",
     title: "Civil Engineering Construction",
     short: "Civil works for energy infrastructure and general buildings.",
     summary:
@@ -111,7 +111,7 @@ export const services: Service[] = [
   },
   {
     slug: "inspection-corrosion-engineering",
-    code: "DWG-06",
+    code: "06",
     title: "Inspection & Corrosion Engineering",
     short: "Integrity inspection and corrosion control for critical assets.",
     summary:
@@ -128,7 +128,7 @@ export const services: Service[] = [
   },
   {
     slug: "pipeline-construction",
-    code: "DWG-07",
+    code: "07",
     title: "Pipeline Construction",
     short: "Construction and maintenance of water, oil, and gas pipelines.",
     summary:
@@ -146,7 +146,7 @@ export const services: Service[] = [
   },
   {
     slug: "epc-services",
-    code: "DWG-08",
+    code: "08",
     title: "EPC — Project Management, Engineering, Procurement & Construction",
     short: "Turnkey EPC delivery from feasibility through commissioning.",
     summary:
@@ -164,7 +164,7 @@ export const services: Service[] = [
   },
   {
     slug: "maintenance-services",
-    code: "DWG-09",
+    code: "09",
     title: "Maintenance of Mechanical Installations & Structures",
     short: "Planned and reactive maintenance for refineries, plants, and offshore structures.",
     summary:

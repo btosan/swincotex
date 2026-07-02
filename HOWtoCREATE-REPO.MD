@@ -12,10 +12,10 @@ Repo name: karis (as an example)
 ❌ Do NOT add .gitignore
 
 3. <!-- THE THIRD THING IS TO CONNECT THE REPO -->
-git remote add origin https://github.com/btosan/adestracc.git
+git remote add origin https://github.com/btosan/swincotex.git
 git remote -v
 
-YOU SHOULD SEE origin https://github.com/btosan/adestracc.git
+YOU SHOULD SEE origin https://github.com/btosan/swincotex.git
 
 4. <!-- PUSH TO GIT -->
 git push -u origin main
