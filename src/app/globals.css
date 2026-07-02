@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Spec-sheet style tag used throughout as a structural device,
-   echoing engineering drawing labels (DWG-XX / REV) */
+   echoing engineering drawing labels (XX / REV) */
 .spec-tag {
   font-family: var(--font-mono);
   letter-spacing: 0.08em;

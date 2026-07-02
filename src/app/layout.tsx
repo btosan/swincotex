@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -47,6 +47,10 @@ export const metadata: Metadata = {
     locale: "en_NG",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1E0E99",
 };
 
 export default function RootLayout({

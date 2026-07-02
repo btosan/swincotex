@@ -64,7 +64,7 @@ lib/
 
 - **Colors** (`app/globals.css` `@theme`): `primary` (Facebook blue #1877F2), `navy` (deep blueprint navy #081B33, used for dark sections), `sky` (Man City sky blue #6CABDD, small accent only), `paper` (off-white background), `steel` (body copy gray-blue).
 - **Type**: Space Grotesk (display/headings), Inter (body), JetBrains Mono (spec-sheet style tags — project codes, labels, coordinates).
-- **Signature motif**: an engineering "blueprint grid" background (`.blueprint-grid` utility) and spec-sheet style reference tags (`.spec-tag`, e.g. `DWG-01`, `PRJ-002`) used throughout as a structural device — echoing the technical drawing / project-register vernacular of an EPC contractor.
+- **Signature motif**: an engineering "blueprint grid" background (`.blueprint-grid` utility) and spec-sheet style reference tags (`.spec-tag`, e.g. `01`, `PRJ-002`) used throughout as a structural device — echoing the technical drawing / project-register vernacular of an EPC contractor.
 
 ## To do before going live
 

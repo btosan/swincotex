@@ -71,7 +71,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/40 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} Swincotex Oil and Gas Company Limited. All rights reserved.</p>
-          <p className="spec-tag">DWG-SITE / REV-A / WARRI-NG</p>
+          <p className="spec-tag">SITE / REV-A / WARRI-NG</p>
         </div>
       </div>
     </footer>

@@ -24,7 +24,7 @@ export default function AboutPage() {
         <div className="blueprint-grid absolute inset-0 opacity-30" />
         <div className="absolute inset-0 bg-linear-to-b from-navy/20 via-navy/40 to-navy/60" />
         <div className="container-page relative">
-          <p className="spec-tag mb-4 text-gray-200">DWG-00A / About</p>
+          <p className="spec-tag mb-4 text-gray-200">About</p>
           <h1 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
             An indigenous oil &amp; gas service company built on the field.
           </h1>

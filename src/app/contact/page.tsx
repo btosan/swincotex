@@ -35,7 +35,7 @@ export default function ContactPage() {
         <div className="blueprint-grid absolute inset-0 opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/60 to-navy" />
         <div className="container-page relative">
-          <p className="spec-tag mb-4 text-sky">DWG-CTC / Contact</p>
+          <p className="spec-tag mb-4 text-sky">Contact</p>
           <h1 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Tell us about your site and scope.
           </h1>

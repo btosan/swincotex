@@ -91,13 +91,27 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      
+      {/* Field gallery */}
+      <section className="py-20 lg:py-28">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="Field Documentation"
+            title="From foundation to commissioning."
+            description="A record of the work itself — fabrication, welding, civil and integrity works captured on site across our current and completed projects."
+          />
+          <div className="mt-12">
+            <ImageCarousel />
+          </div>
+        </div>
+      </section>
 
       {/* About teaser */}
       <section className="py-20 lg:py-28">
         <div className="container-page grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div>
             <SectionHeading
-              eyebrow="DWG-00A / Company Profile"
+              eyebrow="Company Profile"
               title="A fast-growing indigenous oil & gas service company."
               description="Based in Warri, Delta State, Swincotex aspires to be one of the fastest growing firms among indigenous oil and gas service organizations — providing project management, engineering, procurement and construction services for the oil & gas industry, power plants, buildings, general civil works, and offshore light industry."
             />
@@ -170,20 +184,6 @@ export default function HomePage() {
                 </span>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Field gallery */}
-      <section className="py-20 lg:py-28">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="Field Documentation"
-            title="From foundation to commissioning."
-            description="A record of the work itself — fabrication, welding, civil and integrity works captured on site across our current and completed projects."
-          />
-          <div className="mt-12">
-            <ImageCarousel />
           </div>
         </div>
       </section>
