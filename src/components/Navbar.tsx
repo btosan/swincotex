@@ -14,6 +14,7 @@ const primaryLinks = [
   // { href: "/contact", label: "Contact" },
 ];
 
+// drawer
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -154,71 +155,96 @@ export default function Navbar() {
         onClick={() => setMobileOpen(false)}
       />
 
-      {/* mobile drawer panel */}
+{/* mobile drawer panel */}
+<div
+  className={`fixed right-0 top-0 z-50 flex h-full w-80 max-w-[85vw] flex-col bg-navy transition-transform duration-300 ease-in-out lg:hidden ${
+    mobileOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+  {/* Drawer header */}
+  <div className="flex h-[4.5rem] shrink-0 items-center justify-between border-b border-white/10 px-5">
+    <span className="font-display text-sm font-bold tracking-tight text-white">Menu</span>
+    <button
+      onClick={() => setMobileOpen(false)}
+      className="flex h-10 w-10 items-center justify-center rounded-sm text-white/80 hover:text-white"
+      aria-label="Close menu"
+    >
+      <X size={20} />
+    </button>
+  </div>
+
+  {/* Scrollable nav body — fills remaining height */}
+  <div className="flex flex-1 flex-col overflow-y-auto px-3 py-4">
+    <Link
+      href="/"
+      className="rounded-sm px-3 py-3.5 text-[15px] font-medium text-white/90 hover:bg-white/5"
+    >
+      Home
+    </Link>
+
+    {/* Services accordion */}
+    <div className="flex flex-col">
+      <button
+        onClick={() => setMobileServicesOpen((v) => !v)}
+        className="flex items-center justify-between rounded-sm px-3 py-3.5 text-left text-[15px] font-medium text-white/90 hover:bg-white/5"
+      >
+        Services
+        <ChevronDown
+          size={16}
+          className={`shrink-0 text-white/60 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      {/* Submenu: capped height + its own scroll so all 12 items are reachable */}
       <div
-        className={`fixed right-0 top-0 z-50 h-full w-72 bg-navy transition-transform duration-300 ease-in-out lg:hidden ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
+        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+          mobileServicesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
       >
-        <div className="flex h-[4.5rem] items-center justify-between border-b border-white/10 px-4">
-          <span className="font-display text-sm font-bold tracking-tight text-white">Menu</span>
-          <button
-            onClick={() => setMobileOpen(false)}
-            className="flex h-10 w-10 items-center justify-center rounded-sm text-white"
-            aria-label="Close menu"
-          >
-            <X size={20} />
-          </button>
-        </div>
-
-        <div className="flex flex-col overflow-y-auto py-3 px-4">
-          <Link href="/" className="rounded-sm px-2 py-3 text-sm font-medium text-white/90">
-            Home
-          </Link>
-
-          <button
-            onClick={() => setMobileServicesOpen((v) => !v)}
-            className="flex items-center justify-between rounded-sm px-2 py-3 text-left text-sm font-medium text-white/90"
-          >
-            Services
-            <ChevronDown size={16} className={`transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
-          </button>
-          {mobileServicesOpen && (
-            <div className="mb-2 flex flex-col gap-0.5 border-l border-white/10 pl-4">
-              {services.map((s) => (
-                <Link
-                  key={s.slug}
-                  href={`/services/${s.slug}`}
-                  className="rounded-sm px-2 py-2.5 text-sm text-white/70"
-                >
-                  <span className="spec-tag mr-2 text-sky">{s.code}</span>
-                  {s.title}
-                </Link>
-              ))}
-              <Link href="/services" className="rounded-sm px-2 py-2.5 text-sm font-semibold text-sky">
-                View all services &rarr;
+        <div className="overflow-hidden">
+          <div className="ml-3 flex max-h-64 flex-col gap-0.5 overflow-y-auto border-l border-white/10 py-1 pl-4 pr-1">
+            {services.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="flex items-baseline gap-2 rounded-sm px-2 py-2.5 text-sm text-white/70 hover:bg-white/5 hover:text-white"
+              >
+                <span className="spec-tag shrink-0 text-sky">{s.code}</span>
+                <span className="leading-snug">{s.title}</span>
               </Link>
-            </div>
-          )}
-
-          {primaryLinks.map((link) => (
+            ))}
             <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-sm px-2 py-3 text-sm font-medium text-white/90"
+              href="/services"
+              className="rounded-sm px-2 py-2.5 text-sm font-semibold text-sky"
             >
-              {link.label}
+              View all services &rarr;
             </Link>
-          ))}
-
-          <Link
-            href="/contact"
-            className="mt-4 rounded-sm bg-primary px-4 py-3 text-center text-sm font-semibold text-white"
-          >
-            Contact Us
-          </Link>
+          </div>
         </div>
       </div>
+    </div>
+
+    {primaryLinks.map((link) => (
+      <Link
+        key={link.href}
+        href={link.href}
+        className="rounded-sm px-3 py-3.5 text-[15px] font-medium text-white/90 hover:bg-white/5"
+      >
+        {link.label}
+      </Link>
+    ))}
+  </div>
+
+  {/* Fixed footer CTA — always visible, not pushed off-screen by long submenu */}
+  <div className="shrink-0 border-t border-white/10 p-4">
+    <Link
+      href="/contact"
+      className="flex items-center justify-center rounded-sm bg-primary px-4 py-3.5 text-center text-sm font-semibold text-white hover:bg-primary-dark"
+    >
+      Contact Us
+    </Link>
+  </div>
+</div>
     </header>
   );
 }

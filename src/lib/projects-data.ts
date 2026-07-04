@@ -14,7 +14,7 @@ export const projects: Project[] = [
     client: "Shell Petroleum Dev. Co. Ltd (Main Contractor: Packlinc Ltd)",
     location: "SPDC Obigbo Manifold, Kom Kom",
     title: "Construction and erection of enhanced manifold caging",
-    duration: "Jun – Sept 2014",
+    duration: "Jun – Sept 2024",
     image:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
     gallery: [
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     client: "Shell Petroleum Dev. Co. Ltd (Main Contractor: Jurak Oil Ltd)",
     location: "Imo River 2 Flow Station",
     title: "Design, construction, and installation of 16-inch smokeless flare stack",
-    duration: "Aug – Dec 2015",
+    duration: "Aug – Dec 2025",
     image:
       "https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1200&q=80",
     gallery: [
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     location: "Oshie Flow Station",
     title:
       "Design, construction, and installation of twin 30-inch smokeless flare, auto ignition system and bondwall",
-    duration: "2014 – 2015",
+    duration: "2020 – 2021",
     image:
       "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=80",
     gallery: [
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     client: "Addax Petroleum Development Nigeria Limited",
     location: "OML 124",
     title: "Installation of citadel fencing around the Ossu manifold",
-    duration: "—",
+    duration: "2021 – 2022",
     image:
       "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
     gallery: [

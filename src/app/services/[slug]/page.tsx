@@ -44,11 +44,11 @@ export default async function ServiceDetailPage({
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="blueprint-grid absolute inset-0 opacity-30" />
-        <div className="absolute inset-0 bg-linear-to-b from-navy/40 via-navy/60 to-navy/80" />
+        <div className="absolute inset-0 bg-linear-to-b from-navy/10 via-navy/20 to-navy/30" />
         <div className="container-page relative">
           <Link
             href="/services"
-            className="mb-6 flex w-fit items-center gap-1.5 text-xs font-semibold text-white/60 hover:text-sky"
+            className="mb-6 flex w-fit items-center gap-1.5 text-xs font-semibold text-white/70 hover:text-sky"
           >
             <ArrowLeft size={14} /> All services
           </Link>

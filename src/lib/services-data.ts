@@ -1,6 +1,6 @@
 export type Service = {
   slug: string;
-  code: string; // spec-sheet style code, e.g. 01
+  code: string;
   title: string;
   short: string;
   summary: string;
@@ -16,7 +16,10 @@ export type Service = {
     | "shield-check"
     | "waypoints"
     | "clipboard-list"
-    | "settings-2";
+    | "settings-2"
+    | "layers"
+    | "recycle"
+    | "users";
 };
 
 export const services: Service[] = [
@@ -51,8 +54,8 @@ export const services: Service[] = [
       "Field labour supply for well site operations",
       "Routine and planned maintenance programmes",
     ],
-    image: "https://images.unsplash.com/photo-1624771002998-4aadfd43e7c4?q=80&w=1200&auto=format&fit=crop",
-    imageAlt: "Well head pump jack equipment in a field",
+    image: "https://images.unsplash.com/photo-1516199423456-1f1e91b06f25?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Oil pump jack silhouette in a field at sunset",
     icon: "drill",
   },
   {
@@ -70,8 +73,8 @@ export const services: Service[] = [
       "Fabrication of platforms for offshore facilities",
       "Heavy and light industrial plants",
     ],
-    image: "https://images.unsplash.com/photo-1473876637954-4b493d59fd97?q=80&w=1200&auto=format&fit=crop",
-    imageAlt: "Industrial power plant skyline",
+    image: "https://images.unsplash.com/photo-1759384628232-134f0d2f154d?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Large heavy-industry plant complex",
     icon: "settings-2",
   },
   {
@@ -88,8 +91,8 @@ export const services: Service[] = [
       "Storage tanks, columns, evaporators and heaters",
       "Packaged equipment and pipe coating",
     ],
-    image: "https://images.unsplash.com/photo-1507497806295-753c4108560c?q=80&w=1200&auto=format&fit=crop",
-    imageAlt: "Welder in protective gear fabricating steel components",
+    image: "https://images.unsplash.com/photo-1515661516885-dd2733d09dca?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Welder working with sparks flying from metal",
     icon: "wrench",
   },
   {
@@ -105,8 +108,8 @@ export const services: Service[] = [
       "Roads, highways and drainage",
       "General civil works for oil and gas sites",
     ],
-    image: "https://images.unsplash.com/photo-1535732759880-bbd5c7265e3f?q=80&w=1200&auto=format&fit=crop",
-    imageAlt: "Tower crane at a civil construction site",
+    image: "https://images.unsplash.com/photo-1644221150186-5d785a471f44?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Building under construction next to a tower crane",
     icon: "building-2",
   },
   {
@@ -122,8 +125,8 @@ export const services: Service[] = [
       "Hydro-testing of pre-fabricated piping spools",
       "Tank and structure integrity support",
     ],
-    image: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=1200&auto=format&fit=crop",
-    imageAlt: "Pipe weld inspection and integrity testing",
+    image: "https://images.unsplash.com/photo-1774019883037-91f5d43e2890?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Rusted industrial valve showing corrosion on a pipeline",
     icon: "shield-check",
   },
   {
@@ -140,8 +143,8 @@ export const services: Service[] = [
       "Flare gas knockout vessels and flare stacks",
       "Flare auto-ignition systems",
     ],
-    image: "https://images.unsplash.com/photo-1565364507085-325347bae748?q=80&w=1200&auto=format&fit=crop",
-    imageAlt: "Excavator beside large pipes at a pipeline construction site",
+    image: "https://images.unsplash.com/photo-1645070029556-809b2517151e?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Excavator digging a trench for pipeline construction",
     icon: "waypoints",
   },
   {
@@ -158,8 +161,8 @@ export const services: Service[] = [
       "Project management and planned maintenance",
       "Plant / process refurbishment and overhaul",
     ],
-    image: "https://images.unsplash.com/photo-1769147339214-076740872485?q=80&w=1200&auto=format&fit=crop",
-    imageAlt: "Mechanical components laid out on engineering blueprints",
+    image: "https://images.unsplash.com/photo-1780034766267-cf76b8484212?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Metal mechanical parts laid out on engineering blueprints",
     icon: "clipboard-list",
   },
   {
@@ -175,9 +178,66 @@ export const services: Service[] = [
       "Planned maintenance programmes",
       "Full technical support and after-sales service",
     ],
-    image: "https://images.unsplash.com/photo-1691927458684-8b30380b9412?q=80&w=1200&auto=format&fit=crop",
-    imageAlt: "Cooling towers in operation at an industrial plant",
+    image: "https://images.unsplash.com/photo-1759109391463-9ed28f142b5f?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Cooling towers in operation at an industrial plant during sunset",
     icon: "hard-hat",
+  },
+  {
+    slug: "drilling-well-intervention",
+    code: "10",
+    title: "Drilling & Well Intervention",
+    short: "Rig operations, workover, and well intervention across onshore, swamp, and offshore assets.",
+    summary:
+      "We support drilling and post-drilling well operations across the Niger Delta's onshore, swamp, and shallow-offshore environments — deploying rig crews, workover units, and intervention tools to bring wells online and keep them producing efficiently.",
+    scope: [
+      "Onshore, swamp and shallow-offshore drilling rig operations",
+      "Directional drilling, MWD/LWD and mud logging support",
+      "Workover, well completion and recompletion services",
+      "Wireline, slickline and coiled tubing intervention",
+      "Pumping, stimulation and cementing services",
+      "Well testing and plug & abandonment (P&A) programmes",
+    ],
+    image: "https://images.unsplash.com/photo-1722183704200-e96339975ba4?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Oil rig at sea during drilling operations",
+    icon: "layers",
+  },
+  {
+    slug: "drilling-waste-management",
+    code: "11",
+    title: "Drilling Waste Management",
+    short: "Treatment and disposal of drill cuttings, muds, and produced water to regulatory standard.",
+    summary:
+      "We manage the waste streams generated by drilling operations — cuttings, spent muds, and produced water — through approved treatment and disposal routes, helping operators meet NUPRC and NOSDRA environmental compliance requirements across onshore and swamp locations.",
+    scope: [
+      "Drill cuttings treatment via thermal desorption, cuttings re-injection and bioremediation",
+      "Water-based and oil-based mud (WBM/OBM) handling and disposal",
+      "Produced water treatment and NORM (naturally occurring radioactive material) management",
+      "Waste pit remediation and hydrocarbon-contaminated soil treatment",
+      "Licensed waste transportation, storage and secondary waste (ash/sludge) disposal",
+      "Regulatory reporting and compliance support for NUPRC/NOSDRA waste standards",
+    ],
+    image: "https://images.unsplash.com/photo-1636887584784-954392022b75?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Industrial plant piping used in waste treatment",
+    icon: "recycle",
+  },
+  {
+    slug: "manpower-supply",
+    code: "12",
+    title: "Manpower Supply",
+    short: "Technical and skilled personnel supply for field, plant, and project operations.",
+    summary:
+      "We provide skilled, semi-skilled, and professional manpower for drilling, construction, fabrication, and maintenance projects, sourcing and mobilising qualified Nigerian personnel in line with NOGICD Act local content requirements.",
+    scope: [
+      "Skilled and semi-skilled field labour for drilling, construction and fabrication",
+      "Technical personnel: engineers, riggers, welders, scaffolders and technicians",
+      "HSE officers and safety supervision personnel",
+      "Contract staffing in line with NOGICD Act local content requirements",
+      "Workforce mobilisation, camp logistics and personnel administration",
+      "Short-term project surge staffing and long-term secondment",
+    ],
+    image: "https://images.unsplash.com/photo-1766736259614-61ac882294c5?q=80&w=1200&auto=format&fit=crop",
+    imageAlt: "Rows of hard hats representing field workforce",
+    icon: "users",
   },
 ];
 
