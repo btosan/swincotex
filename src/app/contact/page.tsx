@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Get in touch with Swincotex Oil and Gas Company Limited in Warri, Delta State, Nigeria.",
 };
 
-const WHATSAPP_NUMBER = "2340000000000"; // same digits as the tel: link, no + or spaces
+const WHATSAPP_NUMBER = "2348052507358"; // same digits as the tel: link, no + or spaces
 const WHATSAPP_MESSAGE = "Hello Swincotex, I'd like to enquire about a project.";
 const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
     <>
       <section className="relative overflow-hidden bg-navy py-20 lg:py-24">
         <div className="blueprint-grid absolute inset-0 opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 to-navy" />
+        <div className="absolute inset-0 bg-linear-to-b from-navy/60 to-navy" />
         <div className="container-page relative">
           <p className="spec-tag mb-4 text-sky">Contact</p>
           <h1 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -50,64 +50,42 @@ export default function ContactPage() {
         <div className="container-page grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.3fr]">
           <div>
             <SectionHeading eyebrow="Reach us" title="Contact details" />
-            <div className="mt-8 flex flex-col gap-6">
-              <div className="flex items-start gap-3.5">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary-light">
-                  <MapPin size={18} className="text-primary" />
+
+            <ul className="mt-6 flex flex-col gap-4">
+              <li className="flex items-start gap-3">
+                <MapPin size={18} className="mt-0.5 shrink-0 text-primary" />
+                <span className="min-w-0 wrap-break-word leading-relaxed text-steel">
+                  100, Midwestern College of Maritime Nautical Management &amp; Technology, Warri, Delta State, Nigeria
                 </span>
-                <div>
-                  <p className="text-sm font-semibold text-navy">Yard &amp; office</p>
-                  <p className="mt-0.5 text-sm text-steel">Warri, Delta State, Nigeria</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3.5">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary-light">
-                  <Phone size={18} className="text-primary" />
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-navy">Phone</p>
-                  <a href="tel:+2340000000000" className="mt-0.5 block text-sm text-steel hover:text-primary">
-                    +234 (0) 000 000 0000
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Phone size={18} className="mt-0.5 shrink-0 text-primary" />
+                <span className="flex min-w-0 flex-col gap-0.5">
+                  <a href="tel:+2348052507358" className="text-steel hover:text-primary">
+                    +234 805 250 7358
                   </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-3.5">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-[#25D366]/10">
-                  <WhatsAppIcon size={18} className="text-[#25D366]" />
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-navy">WhatsApp</p>
-                  <a
-                    href={whatsappHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-0.5 block text-sm text-steel hover:text-primary"
-                  >
-                    +234 (0) 000 000 0000
+                  <a href="tel:+2348122322331" className="text-steel hover:text-primary">
+                    +234 812 232 2331
                   </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-3.5">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary-light">
-                  <Mail size={18} className="text-primary" />
                 </span>
-                <div>
-                  <p className="text-sm font-semibold text-navy">Email</p>
-                  <a href="mailto:info@swincotex.com" className="mt-0.5 block text-sm text-steel hover:text-primary">
-                    info@swincotex.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-3.5">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary-light">
-                  <Clock size={18} className="text-primary" />
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-navy">Site hours</p>
-                  <p className="mt-0.5 text-sm text-steel">Mon &ndash; Fri, 8:00 &ndash; 17:00 (WAT)</p>
-                </div>
-              </div>
-            </div>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Mail size={18} className="mt-0.5 shrink-0 text-primary" />
+                <a
+                  href="mailto:info@swincotex.com"
+                  className="min-w-0 wrap-break-word text-steel hover:text-primary"
+                >
+                  info@swincotex.com
+                </a>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Clock size={18} className="mt-0.5 shrink-0 text-primary" />
+                <span className="min-w-0 text-steel">Mon &ndash; Fri, 8:00am &ndash; 5:00pm</span>
+              </li>
+            </ul>
           </div>
 
           {/* Static form UI — wire to an API route / email service before going live */}
@@ -198,9 +176,9 @@ export default function ContactPage() {
 
       {/* Map */}
       <section className="border-t border-line">
-        <div className="h-[420px] w-full">
+        <div className="h-105 w-full">
           <iframe
-            title="Swincotex location — Warri, Delta State"
+            title="Swincotex location — Warri, Delta State, Nigeria"
             src="https://www.google.com/maps?q=Warri,+Delta+State,+Nigeria&output=embed"
             className="h-full w-full border-0"
             loading="lazy"

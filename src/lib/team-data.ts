@@ -7,11 +7,11 @@ export type TeamMember = {
 };
 
 export const ceo: TeamMember = {
-  name: "Engr. Efe Omoruyi",
+  name: "Chief Edwin Othuke Asedere",
   role: "Chief Executive Officer",
-  image: "https://images.unsplash.com/photo-1495603889488-42d1d66e5523?q=80&w=800&auto=format&fit=crop",
-  imageAlt: "Portrait of Engr. Efe Omoruyi, Chief Executive Officer",
-  bio: "Efe founded Swincotex with a mandate to build an indigenous EPC contractor capable of full-scope delivery in the Niger Delta. He leads company strategy, client relationships, and major project sign-off, drawing on close to two decades in Nigeria's oil and gas service sector.",
+  image: "/assets/team/Edwin.jpeg",
+  imageAlt: "Portrait of Chief Edwin Othuke Asedere, Chief Executive Officer",
+  bio: "Edwin founded Swincotex with a mandate to build an indigenous EPC contractor capable of full-scope delivery in the Niger Delta. He leads company strategy, client relationships, and major project sign-off, drawing on close to two decades in Nigeria's oil and gas service sector.",
 };
 
 export const teamMembers: TeamMember[] = [

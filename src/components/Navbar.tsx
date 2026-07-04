@@ -44,7 +44,7 @@ export default function Navbar() {
       <div className="hidden border-b border-white/10 lg:block">
         <div className="container-page flex h-9 items-center justify-end text-xs text-white/60">
           {/* <p className="spec-tag">Warri, Delta State, Nigeria &mdash; Est. Oil &amp; Gas Field Services</p> */}
-          <a href="tel:+2340000000000" className="flex items-center gap-1.5 hover:text-sky">
+          <a href="tel:+2348052507358" className="flex items-center gap-1.5 hover:text-sky">
             <PhoneCall size={12} />
             <span className="spec-tag">Talk to our engineers</span>
           </a>

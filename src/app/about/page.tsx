@@ -6,7 +6,7 @@ import { ceo, teamMembers } from "@/lib/team-data";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Swincotex Oil and Gas Company Limited is an indigenous oil and gas service organization based in Warri, Delta State, Nigeria.",
+    "Swincotex Energy Nigeria Limited is an indigenous oil and gas service organization based in Warri, Delta State, Nigeria.",
 };
 
 const companyImage =
