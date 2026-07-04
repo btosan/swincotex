@@ -39,7 +39,7 @@ export default function Footer() {
             <span className="font-display text-lg font-bold tracking-tight text-white">SWINCOTEX</span>
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/55">
-            Swincotex Oil and Gas Company Limited provides technical and labour supply
+            Swincotex Energy Nigeria Limited provides technical and labour supply
             services to the oil and gas industry &mdash; engineering, EPC, fabrication and
             field services from our yard in Warri, Delta State.
           </p>
@@ -80,7 +80,7 @@ export default function Footer() {
             <li className="flex items-start gap-2.5">
               <MapPin size={16} className="mt-0.5 shrink-0 text-sky" />
               <span className="min-w-0 wrap-break-word leading-relaxed">
-                100, Midwestern College of Maritime Nautical Management &amp; Technology, Warri, Delta State, Nigeria
+                100, Midwestern College of Maritime Nautical Management &amp; Technology, Enerhen Road, Warri, Delta State, Nigeria
               </span>
             </li>
             <li className="flex items-start gap-2.5">

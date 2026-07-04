@@ -30,7 +30,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Ishioma Rita Asedere",
     role: "Human resources Manager",
-    image: "/assets/team/Ishioma.jpg",
+    image: "/assets/team/IshiomaA.png",
     imageAlt: "Portrait of Ishioma Rita Asedere, Human resources Manager",
   },
     {

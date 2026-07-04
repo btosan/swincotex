@@ -54,7 +54,7 @@ export const services: Service[] = [
       "Field labour supply for well site operations",
       "Routine and planned maintenance programmes",
     ],
-    image: "https://images.unsplash.com/photo-1516199423456-1f1e91b06f25?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/well-services/we2.jpeg",
     imageAlt: "Oil pump jack silhouette in a field at sunset",
     icon: "drill",
   },

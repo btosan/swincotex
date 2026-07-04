@@ -9,12 +9,12 @@ export const galleryImages: GalleryImage[] = [
   {
     code: "PHOTO 02",
     caption: "Manifold fabrication, Warri workshop",
-    src: "https://images.unsplash.com/photo-1581093458791-9f3c3250e5fb?q=80&w=1200&auto=format&fit=crop",
+    src: "/assets/company-img/swin-fabrication-workshop.png",
   },
   {
     code: "PHOTO 03",
     caption: "Tank de-sanding, Addax Izombe Flow Station",
-    src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
+    src: "/assets/company-img/swin-pipeline-laying-2.png",
   },
   {
     code: "PHOTO 04",

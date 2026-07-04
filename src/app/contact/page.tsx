@@ -55,7 +55,7 @@ export default function ContactPage() {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-primary" />
                 <span className="min-w-0 wrap-break-word leading-relaxed text-steel">
-                  100, Midwestern College of Maritime Nautical Management &amp; Technology, Warri, Delta State, Nigeria
+                  100, Midwestern College of Maritime Nautical Management &amp; Technology, Enerhen Road,Warri, Delta State, Nigeria
                 </span>
               </li>
 

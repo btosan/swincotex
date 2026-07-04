@@ -64,7 +64,7 @@ export default function Navbar() {
             <span className="font-display text-lg md:text-xl lg:text-2xl font-bold tracking-normal text-white">
               SWINCOTEX
             </span>
-            <span className="spec-tag text-white/50">Energy Limited</span>
+            <span className="spec-tag text-white/50 w-full flex items-center justify-center">Oil & Gas Services</span>
           </div>
         </Link>
 

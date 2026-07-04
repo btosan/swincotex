@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
    echoing engineering drawing labels (XX / REV) */
 .spec-tag {
   font-family: var(--font-mono);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.0008em;
   text-transform: uppercase;
   font-size: 0.66rem;
 }
