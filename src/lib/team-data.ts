@@ -34,10 +34,10 @@ export const teamMembers: TeamMember[] = [
     imageAlt: "Portrait of Ishioma Rita Asedere, Human resources Manager",
   },
     {
-    name: "Dr. Godwin Friday chukwuyem",
+    name: "Dr. Godwin Friday Chukwuyem",
     role: "Base Manager",
     image: "/assets/team/Godwin.jpg",
-    imageAlt: "Portrait of Dr. Godwin Friday chukwuyem, Base Manager",
+    imageAlt: "Portrait of Dr. Godwin Friday Chukwuyem, Base Manager",
   },
 
   // {
