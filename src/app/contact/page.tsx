@@ -37,7 +37,7 @@ export default function ContactPage() {
         <div className="container-page relative">
           <p className="spec-tag mb-4 text-sky">Contact</p>
           <h1 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Tell us about your site and scope.
+            Tell us about your project and scope.
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65">
             Reach our engineering team directly, or send your specification through

@@ -7,48 +7,50 @@ export type TeamMember = {
 };
 
 export const ceo: TeamMember = {
-  name: "Chief Edwin Othuke Asedere",
+  name: "Edwin Othuke Asedere",
   role: "Chief Executive Officer",
   image: "/assets/team/Edwin.jpeg",
-  imageAlt: "Portrait of Chief Edwin Othuke Asedere, Chief Executive Officer",
+  imageAlt: "Portrait of Edwin Othuke Asedere, Chief Executive Officer",
   bio: "Edwin founded Swincotex with a mandate to build an indigenous EPC contractor capable of full-scope delivery in the Niger Delta. He leads company strategy, client relationships, and major project sign-off, drawing on close to two decades in Nigeria's oil and gas service sector.",
 };
 
 export const teamMembers: TeamMember[] = [
   {
-    name: "Engr. Chidi Nwosu",
-    role: "Head of Engineering & Projects",
-    image: "https://images.unsplash.com/photo-1617244147030-8bd6f9e21d1e?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Portrait of Engr. Chidi Nwosu, Head of Engineering & Projects",
-  },
-  {
-    name: "Preye Amiengheme",
+    name: "Pst. Morgan Obahor",
     role: "Operations Manager",
-    image: "https://images.unsplash.com/photo-1563132337-f159f484226c?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Portrait of Preye Amiengheme, Operations Manager",
+    image: "/assets/team/MorganObahor.jpg",
+    imageAlt: "Portrait of Pst. Morgan Obahor, Operations Manager",
   },
   {
-    name: "Engr. Godwin Ighoyota",
-    role: "Fabrication Yard Manager",
-    image: "https://images.unsplash.com/photo-1578758803946-2c4f6738df87?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Portrait of Engr. Godwin Ighoyota, Fabrication Yard Manager",
+    name: "Stanley Chukwudi Ifebadiofu",
+    role: "QHSE Manager",
+    image: "/assets/team/Stanley.jpeg",
+    imageAlt: "Portrait of Stanley Chukwudi Ifebadiofu, QHSE Manager",
   },
   {
-    name: "Ese Ogbeide",
-    role: "HSE Manager",
-    image: "https://images.unsplash.com/photo-1687422808384-c896d0efd4ab?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Portrait of Ese Ogbeide, HSE Manager",
+    name: "Ishioma Rita Asedere",
+    role: "Human resources Manager",
+    image: "/assets/team/Ishioma.jpg",
+    imageAlt: "Portrait of Ishioma Rita Asedere, Human resources Manager",
   },
-  {
-    name: "Faith Ukamaka Chukwu",
-    role: "Finance & Admin Manager",
-    image: "https://images.unsplash.com/photo-1606596556957-f6566cc865a9?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Portrait of Faith Ukamaka Chukwu, Finance & Admin Manager",
+    {
+    name: "Dr. Godwin Friday chukwuyem",
+    role: "Base Manager",
+    image: "/assets/team/Godwin.jpg",
+    imageAlt: "Portrait of Dr. Godwin Friday chukwuyem, Base Manager",
   },
-  {
-    name: "Tonye Briggs",
-    role: "Business Development Manager",
-    image: "https://images.unsplash.com/photo-1552652893-2aa10a0ab4df?q=80&w=800&auto=format&fit=crop",
-    imageAlt: "Portrait of Tonye Briggs, Business Development Manager",
-  },
+
+  // {
+  //   name: "Ese Ogbeide",
+  //   role: "HSE Manager",
+  //   image: "https://images.unsplash.com/photo-1687422808384-c896d0efd4ab?q=80&w=800&auto=format&fit=crop",
+  //   imageAlt: "Portrait of Ese Ogbeide, HSE Manager",
+  // },
+
+  // {
+  //   name: "Tonye Briggs",
+  //   role: "Business Development Manager",
+  //   image: "https://images.unsplash.com/photo-1552652893-2aa10a0ab4df?q=80&w=800&auto=format&fit=crop",
+  //   imageAlt: "Portrait of Tonye Briggs, Business Development Manager",
+  // },
 ];
