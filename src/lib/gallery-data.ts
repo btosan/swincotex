@@ -5,22 +5,22 @@ export type GalleryImage = {
 };
 
 // Unsplash placeholders — swap `src` for /assets/gallery/*.jpg as you shoot real site photos.
-// 
+
 export const galleryImages: GalleryImage[] = [
   {
     code: "PHOTO 02",
-    caption: "Manifold fabrication, Warri workshop",
+    caption: "Manifold fabrication, ongoing project",
     src: "/assets/company-img/swin-fabrication-workshop.png",
   },
   {
     code: "PHOTO 03",
-    caption: "Tank de-sanding, Addax Izombe Flow Station",
-    src: "/assets/field-work/fw7.jpeg",
+    caption: "Drilling site",
+    src: "/assets/field-work/fw6.jpeg",
   },
   {
     code: "PHOTO 04",
-    caption: "Structural steel erection, site works",
-    src: "/assets/company-img/swin-machine.png",
+    caption: "Fabrication workshop",
+    src: "/assets/company-img/swin-structural-fabrication.png",
   },
   {
     code: "PHOTO 05",
@@ -29,8 +29,8 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     code: "PHOTO 06",
-    caption: "Flare line integrity works",
-    src: "/assets/field-work/fw9.jpeg",
+    caption: "Pipeline project",
+    src: "/assets/company-img/swin-pipeline-laying-2.png",
   },
   {
     code: "PHOTO 07",
@@ -41,5 +41,10 @@ export const galleryImages: GalleryImage[] = [
     code: "PHOTO 08",
     caption: "Rig drilling & well intervention",
     src: "/assets/company-img/rig-drilling.jpeg",
+  },
+    {
+    code: "PHOTO 09",
+    caption: "De-sanding / Desludging of 25,000 barrel Crude Oil storage Tank",
+    src: "/assets/company-img/swin-building and civil.png",
   },
 ];

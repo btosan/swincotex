@@ -18,7 +18,7 @@ export default function ProjectsPage() {
     <>
 <section className="relative overflow-hidden bg-navy py-20 lg:py-24">
   <img
-    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1920&q=80"
+    src="/assets/company-img/imo-river2.png"
     alt="Steel fabrication and pipework on an industrial site"
     className="absolute inset-0 h-full w-full object-cover"
   />
@@ -29,7 +29,7 @@ export default function ProjectsPage() {
     <h1 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
       Delivered across Shell, Agip &amp; Addax operated assets.
     </h1>
-    <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65">
+    <p className="mt-5 max-w-xl text-base leading-relaxed text-white/95">
       A track record of manifold, flare, fencing, and integrity works executed
       for major operators and their main contractors across the Niger Delta.
     </p>
@@ -56,7 +56,7 @@ export default function ProjectsPage() {
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-navy/70 via-navy/0 to-navy/0" />
+                  <div className="absolute inset-0 bg-linear-to-t from-navy/30 via-navy/10 to-transparent" />
                   <span className="spec-tag absolute bottom-3 left-4 text-white">{p.code}</span>
                 </div>
 

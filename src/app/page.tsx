@@ -118,7 +118,7 @@ export default function HomePage() {
 
           <div className="relative aspect-4/5 w-full overflow-hidden rounded-md border border-line bg-navy">
             <img
-              src="https://images.unsplash.com/photo-1563118351-26b2c7381731?q=80&w=1200&auto=format&fit=crop"
+              src="/assets/company-img/swin-building and civil.png"
               alt="Oil platform at sea representing Swincotex's oil and gas operations"
               className="absolute inset-0 h-full w-full object-cover"
             />

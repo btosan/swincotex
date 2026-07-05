@@ -39,14 +39,14 @@ export default function ImageCarousel() {
               key={img.code}
               className="min-w-0 flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-line bg-navy">
+              <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-line bg-navy">
                 <img
                   src={img.src}
                   alt={img.caption}
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/0 to-navy/0" />
+                <div className="absolute inset-0 bg-linear-to-t from-navy/40 via-navy/10 to-navy/5" />
 
                 <span className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 border-l-2 border-t-2 border-sky/80" />
                 <span className="pointer-events-none absolute right-2.5 top-2.5 h-4 w-4 border-r-2 border-t-2 border-sky/80" />

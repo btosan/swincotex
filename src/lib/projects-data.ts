@@ -7,7 +7,7 @@ export type Project = {
   image: string;
   gallery: string[];
 };
-
+// manifold
 export const projects: Project[] = [
   {
     code: "PRJ-001",
@@ -16,11 +16,11 @@ export const projects: Project[] = [
     title: "Construction and erection of enhanced manifold caging",
     duration: "Jun – Sept 2024",
     image:
-      "/assets/company-img/swin-manifold-caging.png",
+      "/assets/company-img/swin-fabrication-workshop.png",
     gallery: [
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1590959651373-a3db0f38c968?auto=format&fit=crop&w=1200&q=80",
+      "/assets/company-img/swin-pipelines.png",
+      "/assets/company-img/shell.jpg",
+      "/assets/company-img/swin-fabrication-workshop.png",
     ],
   },
   {
@@ -30,11 +30,11 @@ export const projects: Project[] = [
     title: "Design, construction, and installation of 16-inch smokeless flare stack",
     duration: "Aug – Dec 2025",
     image:
-      "https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1200&q=80",
+      "/assets/company-img/imo-river.png",
     gallery: [
-      "https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?auto=format&fit=crop&w=1200&q=80",
+      "/assets/company-img/imo-river.png",
+      "/assets/company-img/imo-river2.png",
+      "/assets/company-img/imo-river3.png",
     ],
   },
   {
@@ -45,11 +45,11 @@ export const projects: Project[] = [
       "Design, construction, and installation of twin 30-inch smokeless flare, auto ignition system and bondwall",
     duration: "2020 – 2021",
     image:
-      "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=80",
+      "/assets/company-img/oshie.png",
     gallery: [
-      "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1200&q=80",
+      "/assets/company-img/oshie-fs.jpg",
+      "/assets/company-img/oshie.png",
+      "/assets/company-img/oshie-fs2.jpg",
     ],
   },
   {
