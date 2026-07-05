@@ -14,7 +14,7 @@ export default function HseQualityPage() {
       <section className="relative overflow-hidden bg-navy py-20 lg:py-24">
         <img
           src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80"
-          alt="Site worker in safety helmet and PPE on an industrial site"
+          alt="Swincotex project site with safety signage and PPE compliance"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="blueprint-grid absolute inset-0 opacity-30" />
@@ -57,8 +57,8 @@ export default function HseQualityPage() {
             <div className="overflow-hidden rounded-md border border-line bg-white">
               <div className="relative h-40 w-full">
                 <img
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
-                  alt="Safety officer monitoring a project site"
+                  src="/assets/company-img/safety.jpg"
+                  alt="Awincotex project site with safety signage and PPE compliance"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -77,8 +77,8 @@ export default function HseQualityPage() {
             <div className="overflow-hidden rounded-md border border-line bg-white">
               <div className="relative h-40 w-full">
                 <img
-                  src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80"
-                  alt="Site inspection and safety checklist review"
+                  src="/assets/company-img/safety-checklist.png"
+                  alt="Swincotex safety checklist and project site inspection"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -97,8 +97,8 @@ export default function HseQualityPage() {
             <div className="overflow-hidden rounded-md border border-line bg-white">
               <div className="relative h-40 w-full">
                 <img
-                  src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
-                  alt="Completed structural fabrication works on site"
+                  src="/assets/company-img/proven.png"
+                  alt="Swincotex project site with safety signage and PPE compliance"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -130,8 +130,8 @@ export default function HseQualityPage() {
             </p>
             <div className="mt-8 overflow-hidden rounded-md border border-line">
               <img
-                src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=80"
-                alt="Quality inspection of fabricated piping spools"
+                src="/assets/company-img/iso.png"
+                alt="SwincotexISO 9001 quality management system certification"
                 className="h-56 w-full object-cover"
               />
             </div>

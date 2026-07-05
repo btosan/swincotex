@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-navy">
       <div className="blueprint-grid absolute inset-0 opacity-50" />
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/60 to-navy" />
+      <div className="absolute inset-0 bg-linear-to-b from-navy/60 to-navy" />
       <div className="container-page relative text-center">
         <p className="spec-tag text-sky">ERR-404 / Not Found</p>
         <h1 className="mt-4 font-display text-4xl font-bold text-white sm:text-5xl">

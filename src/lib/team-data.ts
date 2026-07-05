@@ -47,10 +47,10 @@ export const teamMembers: TeamMember[] = [
     imageAlt: "Portrait of Ishioma Rita Asedere, Human Resources Manager",
   },
 
-  // {
-  //   name: "Tonye Briggs",
-  //   role: "Business Development Manager",
-  //   image: "https://images.unsplash.com/photo-1552652893-2aa10a0ab4df?q=80&w=800&auto=format&fit=crop",
-  //   imageAlt: "Portrait of Tonye Briggs, Business Development Manager",
-  // },
+  {
+    name: "Olaniyan Josiah Oluwayomi",
+    role: "Project Engineer",
+    image: "/assets/team/Olaniyan.jpeg",
+    imageAlt: "Portrait of Olaniyan Josiah Oluwayomi, Project Engineer",
+  },
 ];

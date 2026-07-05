@@ -15,7 +15,7 @@ export const galleryImages: GalleryImage[] = [
   {
     code: "PHOTO 03",
     caption: "Drilling site",
-    src: "/assets/field-work/fw6.jpeg",
+    src: "/assets/company-img/drilling-waste-management.png",
   },
   {
     code: "PHOTO 04",

@@ -56,14 +56,14 @@ export const projects: Project[] = [
     code: "PRJ-004",
     client: "Addax Petroleum Development Nigeria Limited",
     location: "OML 124",
-    title: "Installation of citadel fencing around the Ossu manifold",
+    title: "Installation of BOP, Blowout Preventer, and associated piping for wellhead platform",
     duration: "2021 – 2022",
     image:
-      "/assets/company-img/swin-structural-fabrication.png",
+      "/assets/field-work/fw7.jpeg",
     gallery: [
-      "/assets/company-img/swin-structural-fabrication.png",
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+      "/assets/field-work/fw9.jpeg",
+      "/assets/field-work/fw8.jpeg",
+      "/assets/field-work/fw7.jpeg",
     ],
   },
 ];

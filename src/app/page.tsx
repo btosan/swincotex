@@ -198,7 +198,7 @@ export default function HomePage() {
 
           <div className="relative mt-10 aspect-21/9 w-full overflow-hidden rounded-md border border-line bg-navy">
             <img
-              src="https://images.unsplash.com/photo-1645070029556-809b2517151e?q=80&w=1600&auto=format&fit=crop"
+              src="/assets/company-img/swincotex.png"
               alt="Excavator carrying out pipeline construction and tie-in works"
               className="absolute inset-0 h-full w-full object-cover"
             />
