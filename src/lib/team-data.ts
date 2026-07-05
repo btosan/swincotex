@@ -28,10 +28,10 @@ export const teamMembers: TeamMember[] = [
     imageAlt: "Portrait of Stanley Chukwudi Ifebadiofu, QHSE Manager",
   },
   {
-    name: "Ishioma Rita Asedere",
-    role: "Human resources Manager",
-    image: "/assets/team/IshiomaA.png",
-    imageAlt: "Portrait of Ishioma Rita Asedere, Human resources Manager",
+    name: "Maria Okuibala",
+    role: "Accounts Manager",
+    image: "/assets/team/IshiomaR.png",
+    imageAlt: "Portrait of Maria Okuibala, Accounts Manager",
   },
     {
     name: "Dr. Godwin Friday Chukwuyem",
@@ -40,12 +40,12 @@ export const teamMembers: TeamMember[] = [
     imageAlt: "Portrait of Dr. Godwin Friday Chukwuyem, Base Manager",
   },
 
-  // {
-  //   name: "Ese Ogbeide",
-  //   role: "HSE Manager",
-  //   image: "https://images.unsplash.com/photo-1687422808384-c896d0efd4ab?q=80&w=800&auto=format&fit=crop",
-  //   imageAlt: "Portrait of Ese Ogbeide, HSE Manager",
-  // },
+  {
+    name: "Ishioma Rita Asedere",
+    role: "Human Resources Manager",
+    image: "/assets/team/mrs-asedere.jpeg",
+    imageAlt: "Portrait of Ishioma Rita Asedere, Human Resources Manager",
+  },
 
   // {
   //   name: "Tonye Briggs",

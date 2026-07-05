@@ -16,7 +16,7 @@ export const projects: Project[] = [
     title: "Construction and erection of enhanced manifold caging",
     duration: "Jun – Sept 2024",
     image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+      "/assets/company-img/swin-manifold-caging.png",
     gallery: [
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
@@ -59,9 +59,9 @@ export const projects: Project[] = [
     title: "Installation of citadel fencing around the Ossu manifold",
     duration: "2021 – 2022",
     image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
+      "/assets/company-img/swin-structural-fabrication.png",
     gallery: [
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
+      "/assets/company-img/swin-structural-fabrication.png",
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
     ],
