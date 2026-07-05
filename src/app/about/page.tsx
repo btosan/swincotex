@@ -37,7 +37,7 @@ export default function AboutPage() {
             <SectionHeading eyebrow="Who we are" title="About Swincotex" />
             <div className="mt-6 flex flex-col gap-4 text-base leading-relaxed text-steel">
               <p>
-                Swincotex Oil and Gas Company Limited is an incorporated organization
+                Swincotex Energy Nigeria Limited is an incorporated organization
                 that provides technical and labour supply services to the oil and gas
                 industry, spanning environmental, process and thermal engineering,
                 well head services, mechanical engineering design and construction,
