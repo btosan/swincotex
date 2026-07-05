@@ -139,8 +139,8 @@ export default function HomePage() {
       <section className="bg-navy py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Service Index"
-            title="Nine disciplines, one contractor."
+            eyebrow="Services"
+            title="Twelve disciplines, one contractor."
             description="From process engineering to civil construction, our teams cover the full scope of technical and labour supply services the oil and gas industry needs on site."
             light
           />

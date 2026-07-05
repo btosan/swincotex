@@ -220,7 +220,7 @@ export const services: Service[] = [
     imageAlt: "Industrial plant piping used in waste treatment",
     icon: "recycle",
   },
-  {
+{
     slug: "manpower-supply",
     code: "12",
     title: "Manpower Supply",
@@ -228,14 +228,16 @@ export const services: Service[] = [
     summary:
       "We provide skilled, semi-skilled, and professional manpower for drilling, construction, fabrication, and maintenance projects, sourcing and mobilising qualified Nigerian personnel in line with NOGICD Act local content requirements.",
     scope: [
-      "Skilled and semi-skilled field labour for drilling, construction and fabrication",
+      "Full drilling crew supply: Rig Manager, Tool Pusher, Night Tool Pusher, Driller, Assistant Driller, Derrickman, Mud Man, Floorhands and Roustabouts",
+      "Rig support trades: Electrician, Mechanic, Materials Man, Rig Safety Officer and Medic",
+      "Skilled and semi-skilled field labour for construction and fabrication",
       "Technical personnel: engineers, riggers, welders, scaffolders and technicians",
       "HSE officers and safety supervision personnel",
       "Contract staffing in line with NOGICD Act local content requirements",
       "Workforce mobilisation, camp logistics and personnel administration",
       "Short-term project surge staffing and long-term secondment",
     ],
-    image: "https://images.unsplash.com/photo-1766736259614-61ac882294c5?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/field-work/fw3.jpeg",
     imageAlt: "Rows of hard hats representing field workforce",
     icon: "users",
   },
