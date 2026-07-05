@@ -50,7 +50,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Olaniyan Josiah Oluwayomi",
     role: "Project Engineer",
-    image: "/assets/team/Olaniyan.jpeg",
+    image: "/assets/team/olaniyan.jpeg",
     imageAlt: "Portrait of Olaniyan Josiah Oluwayomi, Project Engineer",
   },
 ];
