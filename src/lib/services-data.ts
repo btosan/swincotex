@@ -237,7 +237,7 @@ export const services: Service[] = [
       "Workforce mobilisation, camp logistics and personnel administration",
       "Short-term project surge staffing and long-term secondment",
     ],
-    image: "/assets/field-work/fw3.jpeg",
+    image: "/assets/company-img/manpower.png",
     imageAlt: "Rows of hard hats representing field workforce",
     icon: "users",
   },

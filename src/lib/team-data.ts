@@ -18,13 +18,13 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Pst. Morgan Obahor",
     role: "Operations Manager",
-    image: "/assets/team/MorganObahor.jpg",
+    image: "/assets/team/Morgan.jpg",
     imageAlt: "Portrait of Pst. Morgan Obahor, Operations Manager",
   },
   {
     name: "Stanley Chukwudi Ifebadiofu",
     role: "QHSE Manager",
-    image: "/assets/team/Stanley.jpeg",
+    image: "/assets/team/Stanley3.jpg",
     imageAlt: "Portrait of Stanley Chukwudi Ifebadiofu, QHSE Manager",
   },
   {

@@ -16,14 +16,14 @@ export default function ServicesPage() {
     <>
       <section className="relative overflow-hidden bg-navy py-20 lg:py-24">
         <div className="blueprint-grid absolute inset-0 opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 to-navy" />
+        <div className="absolute inset-0 bg-linear-to-b from-navy/60 to-navy" />
         <div className="container-page relative">
           <p className="spec-tag mb-4 text-sky">Service Index</p>
           <h1 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Technical &amp; labour supply services, end to end.
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65">
-            Nine disciplines covering engineering, fabrication, construction, and
+            Twelve disciplines covering engineering, fabrication, construction, and
             maintenance for the oil and gas industry — delivered by our teams out of
             our Warri fabrication yard.
           </p>
@@ -40,7 +40,7 @@ export default function ServicesPage() {
                 href={`/services/${s.slug}`}
                 className="group flex flex-col overflow-hidden rounded-md border border-line bg-white transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-lg hover:shadow-primary/5"
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-navy">
+                <div className="relative aspect-16/10 w-full overflow-hidden bg-navy">
                   <img
                     src={s.image}
                     alt={s.imageAlt}

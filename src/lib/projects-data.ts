@@ -61,8 +61,8 @@ export const projects: Project[] = [
     image:
       "/assets/field-work/fw7.jpeg",
     gallery: [
-      "/assets/field-work/fw9.jpeg",
-      "/assets/field-work/fw8.jpeg",
+      "/assets/company-img/blowout2.jpg",
+      "/assets/company-img/blowout.jpg",
       "/assets/field-work/fw7.jpeg",
     ],
   },
