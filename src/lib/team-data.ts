@@ -55,10 +55,10 @@ export const teamMembers: TeamMember[] = [
   },
 
     {
-    name: "Idowu Godwin Dania",
+    name: "Engr. Idowu Godwin Dania",
     role: "Project Manager",
     image: "/assets/team/dania.jpeg",
-    imageAlt: "Portrait of Idowu Godwin Dania, Project Manager",
+    imageAlt: "Portrait of Engr. Idowu Godwin Dania, Project Manager",
   },
 
     {
