@@ -53,4 +53,18 @@ export const teamMembers: TeamMember[] = [
     image: "/assets/team/ifie.jpg",
     imageAlt: "Portrait of Engr. Ifie Ogheneyoma Jonathan, Project Engineer",
   },
+
+    {
+    name: "Idowu Godwin Dania",
+    role: "Project Manager",
+    image: "/assets/team/dania.jpeg",
+    imageAlt: "Portrait of Idowu Godwin Dania, Project Manager",
+  },
+
+    {
+    name: "Olaniyan Josiah Oluwayomi",
+    role: "Site Engineer",
+    image: "/assets/team/olaniyan.jpeg",
+    imageAlt: "Portrait of Olaniyan Josiah Oluwayomi, Site Engineer",
+  },
 ];
