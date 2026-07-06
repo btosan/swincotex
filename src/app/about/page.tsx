@@ -169,10 +169,10 @@ export default function AboutPage() {
                   alt={ceo.imageAlt}
                   className="h-full w-full object-cover"
                 />
-                {/* <span className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 border-l-2 border-t-2 border-sky/80" />
-                <span className="pointer-events-none absolute right-2.5 top-2.5 h-4 w-4 border-r-2 border-t-2 border-sky/80" />
+                <span className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 border-l-2 border-t-2 border-navy/80" />
+                <span className="pointer-events-none absolute right-2.5 top-2.5 h-4 w-4 border-r-2 border-t-2 border-navy/80" />
                 <span className="pointer-events-none absolute bottom-2.5 left-2.5 h-4 w-4 border-b-2 border-l-2 border-sky/80" />
-                <span className="pointer-events-none absolute bottom-2.5 right-2.5 h-4 w-4 border-b-2 border-r-2 border-sky/80" /> */}
+                <span className="pointer-events-none absolute bottom-2.5 right-2.5 h-4 w-4 border-b-2 border-r-2 border-sky/80" />
               </div>
               <div>
                 <p className="spec-tag text-primary">{ceo.role}</p>
