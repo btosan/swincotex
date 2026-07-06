@@ -163,16 +163,16 @@ export default function AboutPage() {
           <div className="mt-12 flex flex-col gap-6">
             {/* CEO — featured, larger */}
             <div className="flex flex-col gap-6 rounded-md border border-line bg-white p-6 sm:flex-row sm:items-center sm:gap-8 sm:p-8">
-              <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-sm border border-line bg-navy sm:w-64">
+              <div className="relative aspect-square w-full shrink-0 overflow-hidden  bg-transparent sm:w-64">
                 <img
                   src={ceo.image}
                   alt={ceo.imageAlt}
                   className="h-full w-full object-cover"
                 />
-                <span className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 border-l-2 border-t-2 border-sky/80" />
+                {/* <span className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 border-l-2 border-t-2 border-sky/80" />
                 <span className="pointer-events-none absolute right-2.5 top-2.5 h-4 w-4 border-r-2 border-t-2 border-sky/80" />
                 <span className="pointer-events-none absolute bottom-2.5 left-2.5 h-4 w-4 border-b-2 border-l-2 border-sky/80" />
-                <span className="pointer-events-none absolute bottom-2.5 right-2.5 h-4 w-4 border-b-2 border-r-2 border-sky/80" />
+                <span className="pointer-events-none absolute bottom-2.5 right-2.5 h-4 w-4 border-b-2 border-r-2 border-sky/80" /> */}
               </div>
               <div>
                 <p className="spec-tag text-primary">{ceo.role}</p>

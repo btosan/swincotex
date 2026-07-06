@@ -9,7 +9,7 @@ export type TeamMember = {
 export const ceo: TeamMember = {
   name: "Edwin Othuke Asedere",
   role: "Chief Executive Officer",
-  image: "/assets/team/Edwin.jpeg",
+  image: "/assets/team/ceo2.png",
   imageAlt: "Portrait of Edwin Othuke Asedere, Chief Executive Officer",
   bio: "Edwin founded Swincotex with a mandate to build an indigenous EPC contractor capable of full-scope delivery in the Niger Delta. He leads company strategy, client relationships, and major project sign-off, drawing on close to two decades in Nigeria's oil and gas service sector.",
 };
@@ -48,9 +48,9 @@ export const teamMembers: TeamMember[] = [
   },
 
   {
-    name: "Olaniyan Josiah Oluwayomi",
+    name: "Engr. Ifie Ogheneyoma Jonathan",
     role: "Project Engineer",
-    image: "/assets/team/olaniyan.jpeg",
-    imageAlt: "Portrait of Olaniyan Josiah Oluwayomi, Project Engineer",
+    image: "/assets/team/ifie.jpg",
+    imageAlt: "Portrait of Engr. Ifie Ogheneyoma Jonathan, Project Engineer",
   },
 ];

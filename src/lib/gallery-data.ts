@@ -9,7 +9,7 @@ export type GalleryImage = {
 export const galleryImages: GalleryImage[] = [
   {
     code: "PHOTO 02",
-    caption: "Manifold fabrication, ongoing project",
+    caption: "Well head fabrication, ongoing project",
     src: "/assets/company-img/swin-fabrication-workshop.png",
   },
   {
@@ -34,7 +34,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     code: "PHOTO 07",
-    caption: "Civil works, well head platform",
+    caption: "Well head",
     src: "/assets/well-services/ws.jpeg",
   },
     {
