@@ -2,10 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
+import type { ComponentProps } from "react";
 import ServiceIcon from "@/components/ServiceIcon";
-import { services, getServiceBySlug } from "@/lib/services-data";
+import { prisma } from "@/lib/prisma";
 
-export function generateStaticParams() {
+type IconProp = ComponentProps<typeof ServiceIcon>["icon"];
+
+function toIconProp(icon: string): IconProp {
+  return icon.replace(/_/g, "-") as IconProp;
+}
+
+export async function generateStaticParams() {
+  const services = await prisma.service.findMany({ select: { slug: true } });
   return services.map((s) => ({ slug: s.slug }));
 }
 
@@ -15,7 +23,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const service = await prisma.service.findUnique({ where: { slug } });
   if (!service) return {};
   return {
     title: service.title,
@@ -29,11 +37,16 @@ export default async function ServiceDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+
+  const [service, allServices] = await Promise.all([
+    prisma.service.findUnique({ where: { slug } }),
+    prisma.service.findMany({ orderBy: { order: "asc" } }),
+  ]);
+
   if (!service) notFound();
 
-  const index = services.findIndex((s) => s.slug === service.slug);
-  const next = services[(index + 1) % services.length];
+  const index = allServices.findIndex((s) => s.slug === service.slug);
+  const next = allServices[(index + 1) % allServices.length];
 
   return (
     <>
@@ -54,7 +67,7 @@ export default async function ServiceDetailPage({
           </Link>
           <div className="flex items-center gap-4">
             <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border border-sky/30 bg-white/5">
-              <ServiceIcon icon={service.icon} size={26} className="text-sky" />
+              <ServiceIcon icon={toIconProp(service.icon)} size={26} className="text-sky" />
             </span>
             <div>
               <p className="spec-tag text-sky">{service.code}</p>

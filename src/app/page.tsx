@@ -1,10 +1,19 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import type { ComponentProps } from "react";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceIcon from "@/components/ServiceIcon";
 import ImageCarousel from "@/components/ImageCarousel";
-import { services } from "@/lib/services-data";
-import { projects } from "@/lib/projects-data";
+import { prisma } from "@/lib/prisma";
+
+type IconProp = ComponentProps<typeof ServiceIcon>["icon"];
+
+// Prisma enum values use underscores (hard_hat) since hyphens aren't valid
+// in Prisma enum members; ServiceIcon expects the kebab-case lucide key.
+function toIconProp(icon: string): IconProp {
+  return icon.replace(/_/g, "-") as IconProp;
+}
 
 const stats = [
   { value: "1.6M+", label: "Man-hours without a lost time accident" },
@@ -14,7 +23,19 @@ const stats = [
 ];
 
 // de-sanding of a 25,000-barrel crude oil storage tank, Addax Izombe Flow Station
-export default function HomePage() {
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const [services, projects, latestPosts] = await Promise.all([
+    prisma.service.findMany({ orderBy: { order: "asc" } }),
+    prisma.project.findMany({ orderBy: { order: "asc" } }),
+    prisma.post.findMany({
+      where: { published: true },
+      orderBy: { publishedAt: "desc" },
+      take: 3,
+    }),
+  ]);
+
   return (
     <>
 {/* Hero */}
@@ -160,7 +181,7 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-navy/20 via-navy/10 to-navy/5" />
                   <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-sm border border-white/20 bg-white/10 backdrop-blur-sm">
-                    <ServiceIcon icon={s.icon} size={18} className="text-sky" />
+                    <ServiceIcon icon={toIconProp(s.icon)} size={18} className="text-sky" />
                   </span>
                   <span className="spec-tag absolute right-4 top-4 text-white/60">{s.code}</span>
                 </div>
@@ -235,6 +256,64 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Latest news teaser — omitted entirely if nothing's published yet,
+          so the homepage never shows an awkward empty section. */}
+      {latestPosts.length > 0 && (
+        <section className="border-t border-line bg-paper py-20 lg:py-28">
+          <div className="container-page">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <SectionHeading
+                eyebrow="Updates"
+                title="Latest news"
+                description="Project milestones, announcements, and updates from our engineering and field teams."
+              />
+              <Link
+                href="/news"
+                className="flex shrink-0 items-center gap-2 rounded-sm border border-line px-5 py-3 text-sm font-semibold text-navy transition-colors hover:border-primary hover:text-primary"
+              >
+                All news <ArrowRight size={15} />
+              </Link>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+              {latestPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/news/${post.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-md border border-line bg-white transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-lg hover:shadow-primary/5"
+                >
+                  <div className="relative aspect-16/10 w-full overflow-hidden bg-navy">
+                    <Image
+                      src={post.coverImage}
+                      alt={post.coverImageAlt}
+                      fill
+                      unoptimized
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col gap-2.5 p-6">
+                    <p className="spec-tag text-steel-light">
+                      {post.publishedAt
+                        ? new Date(post.publishedAt).toLocaleDateString("en-GB", {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          })
+                        : ""}
+                    </p>
+                    <h3 className="font-display text-base font-semibold leading-snug text-navy">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-steel">{post.excerpt}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="relative overflow-hidden border-t border-line py-20">

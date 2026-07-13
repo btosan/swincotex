@@ -6,10 +6,12 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, PhoneCall } from "lucide-react";
 import { services } from "@/lib/services-data";
+import AuthNavItem from "@/components/AuthNavItem";
 
 const primaryLinks = [
   { href: "/about", label: "About Us" },
   { href: "/projects", label: "Projects" },
+  { href: "/news", label: "News" },
   { href: "/hse-quality", label: "HSE & Quality" },
   // { href: "/contact", label: "Contact" },
 ];
@@ -135,16 +137,23 @@ export default function Navbar() {
           >
             Contact Us
           </Link>
+
+          <div className="ml-1 border-l border-white/10 pl-3">
+            <AuthNavItem />
+          </div>
         </div>
 
         {/* mobile toggle */}
-        <button
-          onClick={() => setMobileOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-sm text-white lg:hidden"
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <AuthNavItem />
+          <button
+            onClick={() => setMobileOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-sm text-white"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
 
       {/* mobile drawer overlay */}

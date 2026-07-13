@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import SectionHeading from "@/components/SectionHeading";
-import { projects, fieldWorks } from "@/lib/projects-data";
+import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: "Project Experience",
@@ -9,32 +9,37 @@ export const metadata: Metadata = {
     "Swincotex project experience on Shell, Nigeria Agip, and Addax Petroleum operated sites across the Niger Delta.",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const [projects, fieldWorks] = await Promise.all([
+    prisma.project.findMany({ orderBy: { order: "asc" } }),
+    prisma.fieldWork.findMany({ orderBy: { order: "asc" } }),
+  ]);
+
   const allGalleryImages = projects.flatMap((p) =>
     p.gallery.map((src, i) => ({ src, code: p.code, title: p.title, key: `${p.code}-${i}` }))
   );
 
   return (
     <>
-<section className="relative overflow-hidden bg-navy py-20 lg:py-24">
-  <img
-    src="/assets/company-img/imo-river2.png"
-    alt="Steel fabrication and pipework on an industrial site"
-    className="absolute inset-0 h-full w-full object-cover"
-  />
-  <div className="blueprint-grid absolute inset-0 opacity-30" />
-  <div className="absolute inset-0 bg-linear-to-b from-navy/30 via-navy/40 to-navy/50" />
-  <div className="container-page relative">
-    <p className="spec-tag mb-4 text-sky">PRJ / Project Experience</p>
-    <h1 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
-      Delivered across Shell, Agip &amp; Addax operated assets.
-    </h1>
-    <p className="mt-5 max-w-xl text-base leading-relaxed text-white/95">
-      A track record of manifold, flare, fencing, and integrity works executed
-      for major operators and their main contractors across the Niger Delta.
-    </p>
-  </div>
-</section>
+      <section className="relative overflow-hidden bg-navy py-20 lg:py-24">
+        <img
+          src="/assets/company-img/imo-river2.png"
+          alt="Steel fabrication and pipework on an industrial site"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="blueprint-grid absolute inset-0 opacity-30" />
+        <div className="absolute inset-0 bg-linear-to-b from-navy/30 via-navy/40 to-navy/50" />
+        <div className="container-page relative">
+          <p className="spec-tag mb-4 text-sky">PRJ / Project Experience</p>
+          <h1 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            Delivered across Shell, Agip &amp; Addax operated assets.
+          </h1>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/95">
+            A track record of manifold, flare, fencing, and integrity works executed
+            for major operators and their main contractors across the Niger Delta.
+          </p>
+        </div>
+      </section>
 
       {/* Project cards with images */}
       <section className="py-20 lg:py-24">
@@ -166,9 +171,9 @@ export default function ProjectsPage() {
           />
           <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
             {fieldWorks.map((w, i) => (
-              <div key={w} className="rounded-md border border-line bg-white p-6">
+              <div key={w.id} className="rounded-md border border-line bg-white p-6">
                 <p className="spec-tag text-sky">FW-{String(i + 1).padStart(2, "0")}</p>
-                <p className="mt-3 text-sm leading-relaxed text-steel">{w}</p>
+                <p className="mt-3 text-sm leading-relaxed text-steel">{w.description}</p>
               </div>
             ))}
           </div>

@@ -1,0 +1,107 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { ChevronDown, ChevronUp, Trash2, Mail, MailOpen, Archive } from "lucide-react";
+
+type Message = {
+  id: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  company: string | null;
+  service: string | null;
+  message: string;
+  status: "UNREAD" | "READ" | "ARCHIVED";
+  createdAt: string;
+};
+
+export default function MessageRow({ message }: { message: Message }) {
+  const router = useRouter();
+  const [expanded, setExpanded] = useState(false);
+  const [busy, setBusy] = useState(false);
+
+  async function updateStatus(status: Message["status"]) {
+    setBusy(true);
+    await fetch(`/api/admin/messages/${message.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status }),
+    });
+    setBusy(false);
+    router.refresh();
+  }
+
+  async function handleDelete() {
+    if (!confirm(`Delete message from ${message.name}?`)) return;
+    setBusy(true);
+    await fetch(`/api/admin/messages/${message.id}`, { method: "DELETE" });
+    router.refresh();
+  }
+
+  function toggleExpand() {
+    setExpanded((e) => !e);
+    if (!expanded && message.status === "UNREAD") updateStatus("READ");
+  }
+
+  return (
+    <div className={`rounded-md border border-line bg-white ${message.status === "UNREAD" ? "border-l-4 border-l-primary" : ""}`}>
+      <button
+        type="button"
+        onClick={toggleExpand}
+        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+      >
+        <div className="min-w-0">
+          <p className={`truncate text-sm ${message.status === "UNREAD" ? "font-semibold text-navy" : "font-medium text-steel"}`}>
+            {message.name} <span className="font-normal text-steel-light">— {message.email}</span>
+          </p>
+          <p className="mt-0.5 truncate text-xs text-steel-light">
+            {message.service ?? "General enquiry"} · {new Date(message.createdAt).toLocaleString()}
+          </p>
+        </div>
+        {expanded ? <ChevronUp size={18} className="shrink-0 text-steel" /> : <ChevronDown size={18} className="shrink-0 text-steel" />}
+      </button>
+
+      {expanded && (
+        <div className="border-t border-line px-5 py-4">
+          <p className="whitespace-pre-wrap text-sm leading-relaxed text-steel">{message.message}</p>
+
+          {(message.phone || message.company) && (
+            <p className="mt-3 text-xs text-steel-light">
+              {message.phone && <>Phone: {message.phone} </>}
+              {message.company && <>· Company: {message.company}</>}
+            </p>
+          )}
+
+          <div className="mt-4 flex gap-2">
+            <button
+              type="button"
+              disabled={busy}
+              onClick={() => updateStatus(message.status === "UNREAD" ? "READ" : "UNREAD")}
+              className="flex items-center gap-1.5 rounded-sm border border-line px-3 py-1.5 text-xs font-semibold text-navy hover:border-primary disabled:opacity-50"
+            >
+              {message.status === "UNREAD" ? <MailOpen size={14} /> : <Mail size={14} />}
+              Mark {message.status === "UNREAD" ? "read" : "unread"}
+            </button>
+            <button
+              type="button"
+              disabled={busy}
+              onClick={() => updateStatus("ARCHIVED")}
+              className="flex items-center gap-1.5 rounded-sm border border-line px-3 py-1.5 text-xs font-semibold text-navy hover:border-primary disabled:opacity-50"
+            >
+              <Archive size={14} /> Archive
+            </button>
+            <button
+              type="button"
+              disabled={busy}
+              onClick={handleDelete}
+              className="flex items-center gap-1.5 rounded-sm border border-line px-3 py-1.5 text-xs font-semibold text-red-600 hover:border-red-600 disabled:opacity-50"
+            >
+              <Trash2 size={14} /> Delete
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

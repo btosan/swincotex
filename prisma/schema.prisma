@@ -1,0 +1,269 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // No `url` here — Prisma 7 configures the connection via
+  // prisma.config.ts (CLI/migrations) and src/lib/prisma.ts (app
+  // runtime, through the node-postgres driver adapter).
+}
+
+enum Role {
+  ADMIN
+  STAFF
+}
+
+enum ServiceIcon {
+  flame
+  wrench
+  drill
+  hard_hat
+  building_2
+  shield_check
+  waypoints
+  clipboard_list
+  settings_2
+  layers
+  recycle
+  users
+}
+
+enum SubmissionStatus {
+  UNREAD
+  READ
+  ARCHIVED
+}
+
+enum NotificationType {
+  CONTACT_SUBMISSION
+  SYSTEM
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(STAFF)
+  image        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  posts         Post[]
+  notifications Notification[]
+  accounts      Account[]
+  sessions      Session[]
+
+  @@map("users")
+}
+
+// Required by @auth/prisma-adapter even though the Credentials provider
+// itself doesn't use them — they're what lets you add Google/GitHub/etc.
+// later without a schema change, and Auth.js expects them to exist
+// whenever an adapter is configured.
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model Service {
+  id        String      @id @default(cuid())
+  slug      String      @unique
+  code      String
+  title     String
+  short     String
+  summary   String      @db.Text
+  scope     String[]
+  image     String
+  imageAlt  String
+  icon      ServiceIcon
+  order     Int         @default(0)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@map("services")
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  client    String
+  location  String
+  title     String
+  duration  String
+  image     String
+  gallery   String[]
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("projects")
+}
+
+model FieldWork {
+  id          String   @id @default(cuid())
+  description String   @db.Text
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  @@map("field_works")
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  image     String
+  imageAlt  String
+  bio       String?  @db.Text
+  isCeo     Boolean  @default(false)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("team_members")
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  code      String
+  caption   String
+  src       String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@map("gallery_images")
+}
+
+model Post {
+  id            String    @id @default(cuid())
+  slug          String    @unique
+  title         String
+  excerpt       String    @db.Text
+  content       String    @db.Text
+  coverImage    String
+  coverImageAlt String
+  published     Boolean   @default(false)
+  publishedAt   DateTime?
+  authorId      String
+  author        User      @relation(fields: [authorId], references: [id])
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("posts")
+}
+
+model AboutContent {
+  id String @id @default(cuid())
+
+  heroEyebrow String @default("About")
+  heroHeading String
+
+  introParagraphs String[]
+
+  // [{ icon: "Target" | "Eye" | "Factory", title: string, description: string }]
+  cards Json
+
+  capabilityEyebrow     String @default("Capability")
+  capabilityTitle       String
+  capabilityDescription String @db.Text
+
+  // [{ heading: string, items: string[] }]
+  capabilityGroups Json
+
+  leadershipEyebrow     String @default("Leadership")
+  leadershipTitle       String
+  leadershipDescription String @db.Text
+
+  updatedAt DateTime @updatedAt
+
+  @@map("about_content")
+}
+
+model ContactContent {
+  id String @id @default(cuid())
+
+  heroHeading     String
+  heroDescription String @db.Text
+
+  address String   @db.Text
+  phones  String[]
+  email   String
+  hours   String
+
+  whatsappNumber  String
+  whatsappMessage String
+
+  mapEmbedQuery String
+
+  updatedAt DateTime @updatedAt
+
+  @@map("contact_content")
+}
+
+model ContactSubmission {
+  id               String           @id @default(cuid())
+  name             String
+  email            String
+  phone            String?
+  company          String?
+  service          String?
+  message          String           @db.Text
+  status           SubmissionStatus @default(UNREAD)
+  forwardedToSheet Boolean          @default(false)
+  createdAt        DateTime         @default(now())
+
+  notifications Notification[]
+
+  @@map("contact_submissions")
+}
+
+model Notification {
+  id           String             @id @default(cuid())
+  type         NotificationType   @default(CONTACT_SUBMISSION)
+  message      String
+  read         Boolean            @default(false)
+  submissionId String?
+  submission   ContactSubmission? @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  userId       String?
+  user         User?              @relation(fields: [userId], references: [id])
+  createdAt    DateTime           @default(now())
+
+  @@map("notifications")
+}

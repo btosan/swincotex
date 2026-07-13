@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import ContactForm from "@/components/ContactForm";
+import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -8,9 +10,23 @@ export const metadata: Metadata = {
     "Get in touch with Swincotex Oil and Gas Company Limited in Warri, Delta State, Nigeria.",
 };
 
-const WHATSAPP_NUMBER = "2348052507358"; // same digits as the tel: link, no + or spaces
-const WHATSAPP_MESSAGE = "Hello Swincotex, I'd like to enquire about a project.";
-const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+export const revalidate = 60;
+
+// Falls back to this if the ContactContent row hasn't been created in
+// the admin yet (e.g. fresh DB before the first save from /admin/contact).
+const DEFAULTS = {
+  heroHeading: "Tell us about your project and scope.",
+  heroDescription:
+    "Reach our engineering team directly, or send your specification through the form and we'll respond with scope, timeline, and next steps.",
+  address:
+    "100, Midwestern College of Maritime Nautical Management & Technology, Enerhen Road, Warri, Delta State, Nigeria",
+  phones: ["+234 805 250 7358", "+234 812 232 2331"],
+  email: "info@swincotex.com",
+  hours: "Mon – Fri, 8:00am – 5:00pm",
+  whatsappNumber: "2348052507358",
+  whatsappMessage: "Hello Swincotex, I'd like to enquire about a project.",
+  mapEmbedQuery: "Warri, Delta State, Nigeria",
+};
 
 function WhatsAppIcon({ size = 18, className = "" }: { size?: number; className?: string }) {
   return (
@@ -28,7 +44,16 @@ function WhatsAppIcon({ size = 18, className = "" }: { size?: number; className?
   );
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [contactContent, services] = await Promise.all([
+    prisma.contactContent.findFirst(),
+    prisma.service.findMany({ orderBy: { order: "asc" }, select: { title: true } }),
+  ]);
+
+  const content = contactContent ?? DEFAULTS;
+
+  const whatsappHref = `https://wa.me/${content.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessage)}`;
+
   return (
     <>
       <section className="relative overflow-hidden bg-navy py-20 lg:py-24">
@@ -37,11 +62,10 @@ export default function ContactPage() {
         <div className="container-page relative">
           <p className="spec-tag mb-4 text-sky">Contact</p>
           <h1 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Tell us about your project and scope.
+            {content.heroHeading}
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65">
-            Reach our engineering team directly, or send your specification through
-            the form and we&rsquo;ll respond with scope, timeline, and next steps.
+            {content.heroDescription}
           </p>
         </div>
       </section>
@@ -55,122 +79,43 @@ export default function ContactPage() {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-primary" />
                 <span className="min-w-0 wrap-break-word leading-relaxed text-steel">
-                  100, Midwestern College of Maritime Nautical Management &amp; Technology, Enerhen Road,Warri, Delta State, Nigeria
+                  {content.address}
                 </span>
               </li>
 
               <li className="flex items-start gap-3">
                 <Phone size={18} className="mt-0.5 shrink-0 text-primary" />
                 <span className="flex min-w-0 flex-col gap-0.5">
-                  <a href="tel:+2348052507358" className="text-steel hover:text-primary">
-                    +234 805 250 7358
-                  </a>
-                  <a href="tel:+2348122322331" className="text-steel hover:text-primary">
-                    +234 812 232 2331
-                  </a>
+                  {content.phones.map((phone) => (
+                    <a
+                      key={phone}
+                      href={`tel:${phone.replace(/\s+/g, "")}`}
+                      className="text-steel hover:text-primary"
+                    >
+                      {phone}
+                    </a>
+                  ))}
                 </span>
               </li>
 
               <li className="flex items-start gap-3">
                 <Mail size={18} className="mt-0.5 shrink-0 text-primary" />
                 <a
-                  href="mailto:info@swincotex.com"
+                  href={`mailto:${content.email}`}
                   className="min-w-0 wrap-break-word text-steel hover:text-primary"
                 >
-                  info@swincotex.com
+                  {content.email}
                 </a>
               </li>
 
               <li className="flex items-start gap-3">
                 <Clock size={18} className="mt-0.5 shrink-0 text-primary" />
-                <span className="min-w-0 text-steel">Mon &ndash; Fri, 8:00am &ndash; 5:00pm</span>
+                <span className="min-w-0 text-steel">{content.hours}</span>
               </li>
             </ul>
           </div>
 
-          {/* Static form UI — wire to an API route / email service before going live */}
-          <form className="rounded-md border border-line bg-white p-8">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <div className="sm:col-span-1">
-                <label htmlFor="name" className="text-xs font-semibold text-navy">Full name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  className="mt-1.5 w-full rounded-sm border border-line px-3.5 py-2.5 text-sm text-navy outline-none focus:border-primary"
-                  placeholder="Your name"
-                />
-              </div>
-              <div className="sm:col-span-1">
-                <label htmlFor="company" className="text-xs font-semibold text-navy">Company</label>
-                <input
-                  id="company"
-                  name="company"
-                  type="text"
-                  className="mt-1.5 w-full rounded-sm border border-line px-3.5 py-2.5 text-sm text-navy outline-none focus:border-primary"
-                  placeholder="Company name"
-                />
-              </div>
-              <div className="sm:col-span-1">
-                <label htmlFor="email" className="text-xs font-semibold text-navy">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  className="mt-1.5 w-full rounded-sm border border-line px-3.5 py-2.5 text-sm text-navy outline-none focus:border-primary"
-                  placeholder="you@company.com"
-                />
-              </div>
-              <div className="sm:col-span-1">
-                <label htmlFor="phone" className="text-xs font-semibold text-navy">Phone</label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  className="mt-1.5 w-full rounded-sm border border-line px-3.5 py-2.5 text-sm text-navy outline-none focus:border-primary"
-                  placeholder="+234"
-                />
-              </div>
-              <div className="sm:col-span-2">
-                <label htmlFor="service" className="text-xs font-semibold text-navy">Service of interest</label>
-                <select
-                  id="service"
-                  name="service"
-                  className="mt-1.5 w-full rounded-sm border border-line bg-white px-3.5 py-2.5 text-sm text-navy outline-none focus:border-primary"
-                >
-                  <option>Environmental, Process &amp; Thermal Engineering</option>
-                  <option>Well Head Services</option>
-                  <option>Mechanical Engineering, Design &amp; Construction</option>
-                  <option>Fabrication, Supply &amp; Installation of Process Equipment</option>
-                  <option>Civil Engineering Construction</option>
-                  <option>Inspection &amp; Corrosion Engineering</option>
-                  <option>Pipeline Construction</option>
-                  <option>EPC Services</option>
-                  <option>Maintenance of Mechanical Installations &amp; Structures</option>
-                  <option>Other / not sure</option>
-                </select>
-              </div>
-              <div className="sm:col-span-2">
-                <label htmlFor="message" className="text-xs font-semibold text-navy">Project details</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  className="mt-1.5 w-full resize-none rounded-sm border border-line px-3.5 py-2.5 text-sm text-navy outline-none focus:border-primary"
-                  placeholder="Tell us about the site, scope, and timeline"
-                />
-              </div>
-            </div>
-            <button
-              type="submit"
-              className="mt-6 w-full rounded-sm bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-dark sm:w-auto"
-            >
-              Send request
-            </button>
-          </form>
+          <ContactForm serviceOptions={services.map((s) => s.title)} />
         </div>
       </section>
 
@@ -178,8 +123,8 @@ export default function ContactPage() {
       <section className="border-t border-line">
         <div className="h-105 w-full">
           <iframe
-            title="Swincotex location — Warri, Delta State, Nigeria"
-            src="https://www.google.com/maps?q=Warri,+Delta+State,+Nigeria&output=embed"
+            title={`Swincotex location — ${content.mapEmbedQuery}`}
+            src={`https://www.google.com/maps?q=${encodeURIComponent(content.mapEmbedQuery)}&output=embed`}
             className="h-full w-full border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -188,15 +133,17 @@ export default function ContactPage() {
       </section>
 
       {/* Floating WhatsApp button */}
-      <a
-        href={whatsappHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat with us on WhatsApp"
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105"
-      >
-        <WhatsAppIcon size={26} />
-      </a>
+      {content.whatsappNumber && (
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat with us on WhatsApp"
+          className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105"
+        >
+          <WhatsAppIcon size={26} />
+        </a>
+      )}
     </>
   );
 }

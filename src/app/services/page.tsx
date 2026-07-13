@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import type { ComponentProps } from "react";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceIcon from "@/components/ServiceIcon";
-import { services } from "@/lib/services-data";
+import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -11,7 +12,19 @@ export const metadata: Metadata = {
     "Technical and labour supply services to the oil and gas industry — process, mechanical, civil, inspection engineering, EPC, well head and maintenance services.",
 };
 
-export default function ServicesPage() {
+type IconProp = ComponentProps<typeof ServiceIcon>["icon"];
+
+// Prisma enum values use underscores (hard_hat) since hyphens aren't valid
+// in Prisma enum members; ServiceIcon expects the kebab-case lucide key.
+function toIconProp(icon: string): IconProp {
+  return icon.replace(/_/g, "-") as IconProp;
+}
+
+export default async function ServicesPage() {
+  const services = await prisma.service.findMany({
+    orderBy: { order: "asc" },
+  });
+
   return (
     <>
       <section className="relative overflow-hidden bg-navy py-20 lg:py-24">
@@ -46,10 +59,10 @@ export default function ServicesPage() {
                     alt={s.imageAlt}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/75 via-navy/10 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-navy/75 via-navy/10 to-transparent" />
 
                   <span className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-sm border border-white/20 bg-white/10 backdrop-blur-sm">
-                    <ServiceIcon icon={s.icon} size={18} className="text-sky" />
+                    <ServiceIcon icon={toIconProp(s.icon)} size={18} className="text-sky" />
                   </span>
                   <span className="spec-tag absolute right-3 top-3 text-white/70">{s.code}</span>
                 </div>
