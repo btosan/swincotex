@@ -22,6 +22,16 @@ export async function PATCH(request: Request, { params }: RouteParams) {
     data: { status },
   });
 
+  // Keep the bell in sync: reading or archiving a message here should
+  // also clear any notification that pointed at it, otherwise the badge
+  // count stays stuck even though the message itself is no longer unread.
+  if (status !== "UNREAD") {
+    await prisma.notification.updateMany({
+      where: { submissionId: id, read: false },
+      data: { read: true },
+    });
+  }
+
   return NextResponse.json({ submission });
 }
 

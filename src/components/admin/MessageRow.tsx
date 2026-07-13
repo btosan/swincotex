@@ -20,23 +20,44 @@ export default function MessageRow({ message }: { message: Message }) {
   const router = useRouter();
   const [expanded, setExpanded] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function updateStatus(status: Message["status"]) {
     setBusy(true);
-    await fetch(`/api/admin/messages/${message.id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status }),
-    });
-    setBusy(false);
-    router.refresh();
+    setError(null);
+    try {
+      const res = await fetch(`/api/admin/messages/${message.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Failed to update message");
+      }
+      router.refresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to update message");
+    } finally {
+      setBusy(false);
+    }
   }
 
   async function handleDelete() {
     if (!confirm(`Delete message from ${message.name}?`)) return;
     setBusy(true);
-    await fetch(`/api/admin/messages/${message.id}`, { method: "DELETE" });
-    router.refresh();
+    setError(null);
+    try {
+      const res = await fetch(`/api/admin/messages/${message.id}`, { method: "DELETE" });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Failed to delete message");
+      }
+      router.refresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to delete message");
+      setBusy(false);
+    }
   }
 
   function toggleExpand() {
@@ -73,7 +94,7 @@ export default function MessageRow({ message }: { message: Message }) {
             </p>
           )}
 
-          <div className="mt-4 flex gap-2">
+          <div className="mt-4 flex flex-wrap items-center gap-2">
             <button
               type="button"
               disabled={busy}
@@ -99,6 +120,7 @@ export default function MessageRow({ message }: { message: Message }) {
             >
               <Trash2 size={14} /> Delete
             </button>
+            {error && <p className="text-xs text-red-600">{error}</p>}
           </div>
         </div>
       )}
