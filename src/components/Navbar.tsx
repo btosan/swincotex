@@ -171,7 +171,7 @@ export default function Navbar() {
   }`}
 >
   {/* Drawer header */}
-  <div className="flex h-[4.5rem] shrink-0 items-center justify-between border-b border-white/10 px-5">
+  <div className="flex h-18 shrink-0 items-center justify-between border-b border-white/10 px-5">
     <span className="font-display text-sm font-bold tracking-tight text-white">Menu</span>
     <button
       onClick={() => setMobileOpen(false)}

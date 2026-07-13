@@ -17,7 +17,18 @@ export default async function EditTeamMemberPage({
       <p className="spec-tag text-primary">Content · Team</p>
       <h1 className="mt-1 font-display text-2xl font-bold text-navy">Edit team member</h1>
       <div className="mt-8">
-        <TeamMemberForm initial={{ ...member, bio: member.bio ?? "" }} />
+        <TeamMemberForm
+          initial={{
+            id: member.id,
+            name: member.name,
+            role: member.role,
+            image: member.image,
+            imageAlt: member.imageAlt,
+            bio: member.bio ?? "",
+            isCeo: member.isCeo,
+            order: member.order,
+          }}
+        />
       </div>
     </div>
   );

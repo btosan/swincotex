@@ -13,7 +13,7 @@ type Message = {
   service: string | null;
   message: string;
   status: "UNREAD" | "READ" | "ARCHIVED";
-  createdAt: string;
+  createdAt: Date;
 };
 
 export default function MessageRow({ message }: { message: Message }) {
