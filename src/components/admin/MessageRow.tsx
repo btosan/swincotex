@@ -95,23 +95,36 @@ export default function MessageRow({ message }: { message: Message }) {
           )}
 
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              disabled={busy}
-              onClick={() => updateStatus(message.status === "UNREAD" ? "READ" : "UNREAD")}
-              className="flex items-center gap-1.5 rounded-sm border border-line px-3 py-1.5 text-xs font-semibold text-navy hover:border-primary disabled:opacity-50"
-            >
-              {message.status === "UNREAD" ? <MailOpen size={14} /> : <Mail size={14} />}
-              Mark {message.status === "UNREAD" ? "read" : "unread"}
-            </button>
-            <button
-              type="button"
-              disabled={busy}
-              onClick={() => updateStatus("ARCHIVED")}
-              className="flex items-center gap-1.5 rounded-sm border border-line px-3 py-1.5 text-xs font-semibold text-navy hover:border-primary disabled:opacity-50"
-            >
-              <Archive size={14} /> Archive
-            </button>
+            {message.status === "ARCHIVED" ? (
+              <button
+                type="button"
+                disabled={busy}
+                onClick={() => updateStatus("READ")}
+                className="flex items-center gap-1.5 rounded-sm border border-line px-3 py-1.5 text-xs font-semibold text-navy hover:border-primary disabled:opacity-50"
+              >
+                <Mail size={14} /> Unarchive
+              </button>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  disabled={busy}
+                  onClick={() => updateStatus(message.status === "UNREAD" ? "READ" : "UNREAD")}
+                  className="flex items-center gap-1.5 rounded-sm border border-line px-3 py-1.5 text-xs font-semibold text-navy hover:border-primary disabled:opacity-50"
+                >
+                  {message.status === "UNREAD" ? <MailOpen size={14} /> : <Mail size={14} />}
+                  Mark {message.status === "UNREAD" ? "read" : "unread"}
+                </button>
+                <button
+                  type="button"
+                  disabled={busy}
+                  onClick={() => updateStatus("ARCHIVED")}
+                  className="flex items-center gap-1.5 rounded-sm border border-line px-3 py-1.5 text-xs font-semibold text-navy hover:border-primary disabled:opacity-50"
+                >
+                  <Archive size={14} /> Archive
+                </button>
+              </>
+            )}
             <button
               type="button"
               disabled={busy}
