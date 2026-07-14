@@ -3,6 +3,8 @@ import { Target, Eye, Factory, type LucideIcon } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "About Us",
   description:
