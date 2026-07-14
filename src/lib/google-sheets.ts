@@ -1,17 +1,22 @@
 import { google } from "googleapis";
+import type { SubmissionSource } from "@prisma/client";
 
 /**
- * Appends one row to the configured Google Sheet for every contact form
- * submission. Uses a Google Service Account (free, no OAuth consent
- * screen needed) — share the target Sheet with the service account's
- * email as an Editor.
+ * Appends one row to the configured Google Sheet for every submission —
+ * contact enquiries, partnership enquiries, and job applications alike,
+ * distinguished by the "source" column. Uses a Google Service Account
+ * (free, no OAuth consent screen needed) — share the target Sheet with
+ * the service account's email as an Editor.
  *
  * Required env vars:
  *   GOOGLE_SHEETS_CLIENT_EMAIL   — service account email
  *   GOOGLE_SHEETS_PRIVATE_KEY    — service account private key (keep the \n escapes)
  *   GOOGLE_SHEETS_SPREADSHEET_ID — the ID from the sheet's URL
+ *
+ * Sheet columns (row A:H): Timestamp, Source, Name, Email, Phone, Company, Service, Message
  */
 export async function appendContactSubmissionToSheet(row: {
+  source: SubmissionSource;
   name: string;
   email: string;
   phone?: string | null;
@@ -39,12 +44,13 @@ export async function appendContactSubmissionToSheet(row: {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId,
-    range: "Submissions!A:G",
+    range: "Submissions!A:H",
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
         [
           row.createdAt.toISOString(),
+          row.source,
           row.name,
           row.email,
           row.phone ?? "",
