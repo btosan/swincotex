@@ -85,19 +85,19 @@ export default function Footer() {
             </li>
             <li className="flex items-start gap-2.5">
               <Phone size={16} className="mt-0.5 shrink-0 text-sky" />
-              <a href="tel:+2348052507358" className="hover:text-sky">+234 805 250 7358</a>
+              <a href="tel:+2348112202362" className="hover:text-sky">+234 811 220 2362</a>
             </li>
-            <li className="flex items-start gap-2.5">
+            {/* <li className="flex items-start gap-2.5">
               <Phone size={16} className="mt-0.5 shrink-0 text-sky" />
-              <a href="tel:+2348122322331" className="hover:text-sky">+234 812 232 2331</a>
-            </li>
+              <a href="tel:+2348122322331" className="hover:text-sky">+234 811 220 2362</a>
+            </li> */}
             <li className="flex items-start gap-2.5">
               <Mail size={16} className="mt-0.5 shrink-0 text-sky" />
               <a href="mailto:info@swincotex.com" className="hover:text-sky">info@swincotex.com</a>
             </li>
             <li>
               <a
-                href="https://wa.me/2348052507358"
+                href="https://wa.me/2348112202362"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-1 inline-flex items-center gap-2 rounded-sm border border-white/15 bg-white/5 px-3.5 py-2 text-sm font-medium text-white/90 transition-colors hover:border-sky hover:text-sky"
