@@ -14,11 +14,7 @@ function initials(name: string) {
     .join("");
 }
 
-type AuthNavItemProps = {
-  onNavigate?: () => void; // Optional callback to close mobile menu
-};
-
-export default function AuthNavItem({ onNavigate }: AuthNavItemProps) {
+export default function AuthNavItem() {
   const { data: session, status } = useSession();
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,6 +30,7 @@ export default function AuthNavItem({ onNavigate }: AuthNavItemProps) {
   }, []);
 
   if (status === "loading") {
+    // Reserve the space so the nav doesn't jump once the session resolves.
     return <div className="h-9 w-9 shrink-0 rounded-full bg-white/5" />;
   }
 
@@ -44,7 +41,6 @@ export default function AuthNavItem({ onNavigate }: AuthNavItemProps) {
         aria-label="Admin & staff login"
         title="Admin & staff login"
         className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/85 hover:bg-white/5 hover:text-white"
-        onClick={onNavigate}
       >
         <User size={18} />
       </Link>
@@ -59,7 +55,7 @@ export default function AuthNavItem({ onNavigate }: AuthNavItemProps) {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-label="Account menu"
-        className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-primary/40 hover:cursor-pointer text-xs font-semibold text-white ring-1 ring-transparent hover:ring-white/20"
+        className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-primary text-xs font-semibold text-white ring-2 ring-transparent hover:ring-white/20"
       >
         {image ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -72,25 +68,16 @@ export default function AuthNavItem({ onNavigate }: AuthNavItemProps) {
       {open && (
         <div className="absolute right-0 top-full z-50 mt-2 w-48 rounded-md border border-line bg-white py-1.5 shadow-2xl shadow-black/20">
           <p className="truncate border-b border-line px-4 py-2.5 text-xs text-steel-light">{name}</p>
-          
           <Link
             href="/admin"
-            onClick={() => {
-              setOpen(false);
-              onNavigate?.(); // Close mobile drawer
-            }}
+            onClick={() => setOpen(false)}
             className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-navy hover:bg-paper"
           >
             <LayoutDashboard size={15} /> Dashboard
           </Link>
-          
           <button
             type="button"
-            onClick={() => {
-              setOpen(false);
-              signOut({ callbackUrl: "/login" });
-              onNavigate?.();
-            }}
+            onClick={() => signOut({ callbackUrl: "/login" })}
             className="flex w-full items-center gap-2.5 px-4 py-2.5 text-left text-sm text-red-600 hover:bg-paper"
           >
             <LogOut size={15} /> Sign out

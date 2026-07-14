@@ -40,6 +40,12 @@ enum NotificationType {
   SYSTEM
 }
 
+enum SubmissionSource {
+  CONTACT
+  PARTNERSHIP
+  JOB_APPLICATION
+}
+
 model User {
   id           String   @id @default(cuid())
   name         String
@@ -239,6 +245,7 @@ model ContactContent {
 
 model ContactSubmission {
   id               String           @id @default(cuid())
+  source           SubmissionSource @default(CONTACT)
   name             String
   email            String
   phone            String?
@@ -252,6 +259,19 @@ model ContactSubmission {
   notifications Notification[]
 
   @@map("contact_submissions")
+}
+
+model PageView {
+  id          String   @id @default(cuid())
+  path        String
+  // SHA-256 of (IP + User-Agent + a server-side salt), not the raw IP —
+  // lets us count unique visitors without storing anything identifying.
+  visitorHash String
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([visitorHash])
+  @@map("page_views")
 }
 
 model Notification {

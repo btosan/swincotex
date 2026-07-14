@@ -11,9 +11,16 @@ type Message = {
   phone: string | null;
   company: string | null;
   service: string | null;
+  source: "CONTACT" | "PARTNERSHIP" | "JOB_APPLICATION";
   message: string;
   status: "UNREAD" | "READ" | "ARCHIVED";
   createdAt: Date;
+};
+
+const SOURCE_LABEL: Record<Message["source"], string> = {
+  CONTACT: "General",
+  PARTNERSHIP: "Partnership",
+  JOB_APPLICATION: "Job application",
 };
 
 export default function MessageRow({ message }: { message: Message }) {
@@ -76,8 +83,20 @@ export default function MessageRow({ message }: { message: Message }) {
           <p className={`truncate text-sm ${message.status === "UNREAD" ? "font-semibold text-navy" : "font-medium text-steel"}`}>
             {message.name} <span className="font-normal text-steel-light">— {message.email}</span>
           </p>
-          <p className="mt-0.5 truncate text-xs text-steel-light">
-            {message.service ?? "General enquiry"} · {new Date(message.createdAt).toLocaleString()}
+          <p className="mt-0.5 flex items-center gap-1.5 truncate text-xs text-steel-light">
+            <span
+              className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${
+                message.source === "CONTACT"
+                  ? "bg-paper text-steel"
+                  : message.source === "PARTNERSHIP"
+                    ? "bg-primary-light text-primary"
+                    : "bg-sky/15 text-sky"
+              }`}
+            >
+              {SOURCE_LABEL[message.source]}
+            </span>
+            {message.source === "CONTACT" && (message.service ?? "General enquiry")} ·{" "}
+            {new Date(message.createdAt).toLocaleString()}
           </p>
         </div>
         {expanded ? <ChevronUp size={18} className="shrink-0 text-steel" /> : <ChevronDown size={18} className="shrink-0 text-steel" />}
